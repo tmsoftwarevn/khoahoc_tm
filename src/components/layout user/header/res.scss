@@ -1,0 +1,27 @@
+
+// .custom-menu {
+// }
+
+// .custom-menu .ant-menu-item {
+//     color: #000; /* Default color for inactive items */
+//     font-weight: 500;
+// }
+
+// .custom-menu .ant-menu-item:hover {
+//     color: rgb(255, 123, 0); /* Hover color for menu items */
+// }
+
+// .custom-menu .ant-menu-item-selected {
+//     background-color: rgb(255, 123, 0) !important; /* Custom background for active item */
+//     color: #fff !important; /* Custom color for active item text */
+//     border-radius: 8px; /* Rounded corners for the active item */
+// }
+
+// .custom-menu .ant-menu-item-active {
+//     color: rgb(255, 123, 0); /* Custom color for the active (hovered) item */
+// }
+
+.ant-menu-light .ant-menu-item-selected {
+    background-color: rgb(255, 123, 0) !important;
+    color: white;
+}

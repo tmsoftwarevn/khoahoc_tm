@@ -1,0 +1,56 @@
+.ft {
+    position: relative;
+    margin-bottom: 20px;
+    &::before {
+        position: absolute;
+        content: '';
+        width: 45px;
+        height: 4px;
+        bottom: -5px;
+        left: 0;
+        background: white;
+    }
+    
+}
+
+
+
+.ul-ft {
+    padding: 0 !important;
+    li{
+        display: flex;
+        margin-bottom: 10px;
+    }
+}
+
+.center-icon {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .g-fb {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        //border: 1px solid orange;
+        border: 1px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        //color: orange;   
+        color: white;
+        &:hover {
+            color: white;
+            background-color: orange;
+            
+            transition: 0.3s;
+        }
+        .fb {
+            font-size: 18px;
+        }
+        .zalo {
+            font-size: 20px;
+        }
+    }
+}
