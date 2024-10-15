@@ -13,12 +13,12 @@ const Footer = () => {
   //text-white bg-gradient-to-tr from-orange-400 to-pink-500
   return (
     <>
-      <div className="border-t border-gray-400 text-white bg-gradient-to-tr from-orange-400 to-pink-500">
+      <div className="border-t border-gray-400 text-white bg-gradient-to-tr from-blue-400 to-gray-400">
         <div className="container px-2 py-4  lg:px-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10">
             <div className="col-span-1 ">
               <p className="ft font-semibold text-lg">
-                NHÀ SÁCH TM BOOK ONLINE
+                KHÓA HỌC TM
               </p>
               <div className=" text-sm italic mb-3">
                 (Hoạt động từ 8h - 17h, thứ 2 - thứ 7)

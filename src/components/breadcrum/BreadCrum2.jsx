@@ -33,7 +33,7 @@ const Breadcrum2 = (props) => {
 
   return (
     <div className="py-5 md:py-5 uppercase px-2 lg:px-0 ">
-      <Breadcrumb className="text-sm md:text-lg font-semibold" items={bread} />
+      <Breadcrumb className="text-sm md:text-sm font-semibold" items={bread} />
     </div>
   );
 };

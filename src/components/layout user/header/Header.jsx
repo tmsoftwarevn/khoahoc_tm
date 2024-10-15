@@ -12,26 +12,13 @@ import Image from "next/image";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [dropdown, setDropdown] = useState([]);
+  const [dropdown, setDropdown] = useState([{name:"khóa marketing", slug:"slug"}]);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    const getListCategory = async () => {
-      const res = await fetch(
-        `${process.env.URL_BACKEND}/api/v1/parentCategoryHome`
-      );
-      const result = await res.json();
-      if (result && result.data) {
-        let arr = [];
-        result.data.map((item, idx) => {
-          arr.push(item);
-        });
-        setDropdown(arr);
-      }
-    };
-    getListCategory();
+   
   }, []);
 
   const handleSearch = () => {
@@ -47,7 +34,7 @@ const Header = () => {
   return (
     //sticky top-0 left-0 w-full z-50 shadow
     //from-orange-300 to-orange-500
-    <div className="bg-gradient-to-tr from-orange-400 to-pink-500 text-white ">
+    <div className="bg-gradient-to-tr from-blue-400 to-green-200 text-white ">
       <div className="container">
         <Navbar1 />
         <div className="flex justify-between items-center pb-2 px-2 xl:px-0">
@@ -65,7 +52,7 @@ const Header = () => {
             />
           </div>
 
-          <ul className="hidden lg:flex gap-7 uppercase list-none">
+          <ul className="hidden lg:flex gap-10 uppercase list-none">
             {/* <li
               className="group relative cursor-pointer"
               onClick={() => router.push("/")}
@@ -115,17 +102,17 @@ const Header = () => {
                   type="button"
                   className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2 text-white  cursor-pointer text-center shadow-xs transition-all duration-500 "
                 >
-                  <span>tủ sách</span>
+                  <span  onClick={() => router.push("/khoa-hoc")}>Khóa học</span>
                   <span
                     className={
-                      pathname.startsWith("/the-loai")
+                      pathname.startsWith("/khoa-hoc")
                         ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
                         : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
                     }
                   ></span>
                   <span
                     className={
-                      pathname.startsWith("/the-loai")
+                      pathname.startsWith("/khoa-hoc")
                         ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
                         : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
                     }
@@ -162,7 +149,7 @@ const Header = () => {
                               }
                               className="block px-3 py-2 hover:bg-orange-600 duration-150 text-black hover:text-white "
                             >
-                              {item.category}
+                              {item.name}
                             </span>
                           </li>
                         );
@@ -172,72 +159,7 @@ const Header = () => {
               </div>
             </li>
 
-            <li className="group relative cursor-pointer uppercase">
-              <div className="dropdown relative inline-flex group">
-                <div
-                  id="dropdown-hover"
-                  type="button"
-                  className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2 text-white  cursor-pointer text-center shadow-xs transition-all duration-500 "
-                >
-                  <span>Sản phẩm khác</span>
-                  <span
-                    className={
-                      pathname.startsWith("/san-pham-khac")
-                        ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                        : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    }
-                  ></span>
-                  <span
-                    className={
-                      pathname.startsWith("/san-pham-khac")
-                        ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                        : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    }
-                  ></span>
-
-                  <svg
-                    className="dropdown-open:rotate-180 w-2.5 h-2.5 text-white"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
-                </div>
-                <div
-                  className="dropdown-menu shadow-lg bg-white absolute z-50 top-full w-60 hidden group-hover:block"
-                  aria-labelledby="dropdown-hover"
-                >
-                  <ul className="text-sm list-none !ml-0">
-                    <li>
-                      <span
-                        onClick={() =>
-                          router.push(`/combo-sach-qua-tang`)
-                        }
-                        className="block px-3 py-2 hover:bg-orange-600 duration-150 text-black hover:text-white "
-                      >
-                        Combo sách - quà tặng
-                      </span>
-                    </li>
-                    <li>
-                      <span
-                        onClick={() => router.push(`/qua-tang`)}
-                        className="block px-3 py-2 hover:bg-orange-600 duration-150 text-black hover:text-white "
-                      >
-                        quà tặng
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
+            
 
             <li className="group relative cursor-pointer">
               <span onClick={() => router.push("/tin-tuc")}>Tin tức</span>
@@ -297,7 +219,7 @@ const Header = () => {
                 />
                 <Button
                   onClick={() => handleSearch()}
-                  className="!bg-orange-500 !outline-none !hover:border-none !border-none !hover:outline-none !hover:bg-orange-100 !hover:text-white "
+                  className="!bg-blue-500 !outline-none !hover:border-none !border-none !hover:outline-none !hover:bg-orange-100 !hover:text-white "
                 >
                   <FaSearch className="text-white" />
                 </Button>
