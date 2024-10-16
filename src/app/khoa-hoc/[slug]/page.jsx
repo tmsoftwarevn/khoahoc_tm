@@ -1,6 +1,5 @@
 "use client";
 
-
 import Footer from "@/components/layout user/footer/Footer";
 import Header from "@/components/layout user/header/Header";
 import DetailKhoahoc from "../../../components/khoa-hoc/detail-khoahoc/DetailKhoahoc";
@@ -8,17 +7,13 @@ import DetailKhoahoc from "../../../components/khoa-hoc/detail-khoahoc/DetailKho
 const page = () => {
   return (
     <div>
-
       <Header />
 
       <div className="container">
-        
-      <DetailKhoahoc />
-
+        <DetailKhoahoc />
       </div>
 
       <Footer />
-
     </div>
   );
 };

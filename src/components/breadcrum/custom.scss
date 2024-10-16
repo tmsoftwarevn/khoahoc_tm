@@ -1,0 +1,23 @@
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  position: relative;
+  margin-right: 20px; 
+}
+
+.breadcrumb-item a {
+  
+  text-decoration: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  position: absolute;
+  left: -12px; 
+ 
+}
+

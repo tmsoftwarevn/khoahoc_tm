@@ -22,6 +22,7 @@ const CardCourse = (props) => {
         <div className="text-xl font-semibold my-2 hover:text-blue-500 cursor-pointer">
           Chinh Phục Sản Xuất Video Ngắn
         </div>
+        
         <div className="flex items-center justify-between">
           <div className="flex items-center text-blue-600">
             <GoClock className="mr-1" />

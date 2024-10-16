@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Breadcrumb } from "antd";
-
+import "./bread.scss";
 import { convertSlug } from "@/util/convertSlug";
 import Link from "next/link";
 
@@ -32,8 +32,12 @@ const Breadcrum2 = (props) => {
   };
 
   return (
-    <div className="py-5 md:py-5 uppercase px-2 lg:px-0 ">
-      <Breadcrumb className="text-sm md:text-sm font-semibold" items={bread} />
+    <div className="py-5 uppercase px-2 ">
+      {/* <Breadcrumb
+        className="text-sm font-semibold !text-white"
+        items={bread}
+      /> */}
+     
     </div>
   );
 };
