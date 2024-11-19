@@ -29,19 +29,20 @@ const DetailKhoahoc = (props) => {
 
       <div className="px-2 grid grid-cols-3">
         <div className="col-span-3 lg:col-span-2">
-          <ContentCourse />
+          <ContentCourse setOpen = {setOpen} />
         </div>
       </div>
 
-      {/* <ModalVideo
+      <ModalVideo
         channel="youtube"
         autoplay={true}
         start={true}
         isOpen={isOpen}
         videoId="GUGkvPT5TZA"
         onClose={() => setOpen(false)}
-      /> */}
-      <ModalVideo
+      />
+
+      {/* <ModalVideo
         channel="custom"
         isOpen={isOpen}
         onClose={() => setOpen(false)}
@@ -56,7 +57,8 @@ const DetailKhoahoc = (props) => {
             autoPlay
           />
         </div>
-      </ModalVideo>
+      </ModalVideo> */}
+
     </div>
   );
 };

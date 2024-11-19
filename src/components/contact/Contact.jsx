@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import BreadcrumbCustom from "@/components/breadcrum/BreadCrumCustom";
+
 
 import "./contact.scss";
 import Swal from "sweetalert2/dist/sweetalert2.js";

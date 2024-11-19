@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import BlogForDetail from "./BlogForDetail";
-import Breadcrum2 from "@/components/breadcrum/Breadcrum2";
+
 
 const DetailBlog = (props) => {
   const { slug, detail } = props;
@@ -9,9 +9,9 @@ const DetailBlog = (props) => {
 
   const [list, setList] = useState([]);
 
-  useEffect(() => {
-    fetch_baiviet();
-  }, [slug]);
+  // useEffect(() => {
+  //   fetch_baiviet();
+  // }, [slug]);
 
   // useEffect(() => {
   //   if (detail?.tieude) {
@@ -22,13 +22,13 @@ const DetailBlog = (props) => {
   // }, [detail]);
 
 
-  const fetch_baiviet = async () => {
-    const res = await fetch(`${process.env.URL_BACKEND}/api/v1/noibat-home`);
-    const result = await res.json();
-    if (result && result.data) {
-      setList(result.data);
-    }
-  };
+  // const fetch_baiviet = async () => {
+  //   const res = await fetch(`${process.env.URL_BACKEND}/api/v1/noibat-home`);
+  //   const result = await res.json();
+  //   if (result && result.data) {
+  //     setList(result.data);
+  //   }
+  // };
 
   return (
     <div className="mb-5">

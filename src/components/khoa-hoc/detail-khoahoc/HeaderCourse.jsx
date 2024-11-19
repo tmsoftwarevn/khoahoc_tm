@@ -20,7 +20,7 @@ const HeaderCourse = () => {
 
       <div className="flex items-center gap-2 lg:gap-10">
         <div className="flex items-center ">
-          <GoClock className="mr-1" />
+          <GoClock className="mr-1 font-bold" />
           <span>10 giờ 25 phút</span>
         </div>
         <div className="flex items-center ">

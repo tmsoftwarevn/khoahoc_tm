@@ -7,178 +7,151 @@ import { IoCall } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import Fanpage from "./Fanpage";
 import Link from "next/link";
-import Social from "@/components/social/Social";
+import Social from "@/components/social/Social"
+
 
 const Footer = () => {
-  //text-white bg-gradient-to-tr from-orange-400 to-pink-500
+
   return (
     <>
-      <div className="border-t border-gray-400 text-white bg-gradient-to-tr from-blue-400 to-gray-400">
-        <div className="container px-2 py-4  lg:px-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10">
-            <div className="col-span-1 ">
-              <p className="ft font-semibold text-lg">
-                KHÓA HỌC TM
-              </p>
-              <div className=" text-sm italic mb-3">
-                (Hoạt động từ 8h - 17h, thứ 2 - thứ 7)
-              </div>
-              <ul className="ul-ft text-sm">
-                <li className="cursor-pointer mb-3">
-                  <IoCall
-                    style={{
-                      marginRight: "8px",
-                      fontSize: "18px",
-                    }}
-                  />
-                  Gọi đặt hàng: 0979249222
-                </li>
-                <li
-                  onClick={() => {
-                    window.open("mailto:" + "mail@gmail.com");
+    
+    <div className="footer py-4 text-white ">
+      <div className="container px-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10">
+          <div className="col-span-1 sm:col-span-1 md:col-span-2">
+            <p className="ft font-semibold text-xl">THÔNG TIN LIÊN HỆ</p>
+
+            <ul className="ul-ft">
+              <li>
+                <MdLocationOn
+                  style={{
+                    marginRight: "8px",
+                    fontSize: "18px",
+                    marginBottom: "3px",
                   }}
-                  className="cursor-pointer mb-3"
-                >
-                  <IoMdMail
-                    style={{
-                      marginRight: "8px",
-                      fontSize: "18px",
-                    }}
-                  />
-                  tmbrandingvn@gmail.com
-                </li>
-              </ul>
-            </div>
+                />
+                27 Trần Nhật Duật- Phường 5-Đà Lạt, Việt Nam
+              </li>
+              <li
+               
+                className="cursor-pointer"
+              >
+                <IoCall
+                  style={{
+                    marginRight: "8px",
+                    fontSize: "18px",
+                    marginBottom: "3px",
+                  }}
+                />
+                078 666 7131
+              </li>
+              <li
+                
+                className="cursor-pointer"
+              >
+                <IoMdMail
+                  style={{
+                    marginRight: "8px",
+                    fontSize: "18px",
+                    marginBottom: "3px",
+                  }}
+                />
+                miemietoystore185@gmail.com
+              </li>
+              <li
+                
+                className="cursor-pointer"
+              >
+                <BiWorld
+                  style={{
+                    marginRight: "8px",
+                    fontSize: "18px",
+                    marginBottom: "3px",
+                  }}
+                />
+                dochoitreemmiemie.com
+              </li>
+            </ul>
 
-            <div className="col-span-1 ">
-              <p className="ft font-semibold text-lg">HỖ TRỢ KHÁCH HÀNG</p>
-              <div className="capitalize text-sm grid gap-2">
-                <Link
-                  href={"/thong-tin/huong-dan-dat-hang"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Hướng dẫn đặt hàng
-                </Link>
+            <div className="center-icon ">
+              <div
+                className="g-fb"
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/dochoitreemmiemie?locale=vi_VN",
+                    "_blank"
+                  )
+                }
+              >
+                <FaFacebookF className="fb" />
+              </div>
 
-                <Link
-                  href={"/thong-tin/phuong-thuc-thanh-toan"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Phương thức thanh toán
-                </Link>
-                <Link
-                  href={"/thong-tin/phuong-thuc-van-chuyen"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Phương thức vận chuyển
-                </Link>
-                <Link
-                  href={"/thong-tin/chinh-sach-doi-tra"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Chính sách đổi trả
-                </Link>
-                <Link
-                  href={"/thong-tin/chinh-sach-bao-mat"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Chính sách bảo mật
-                </Link>
-                <Link
-                  href={"/thong-tin/dieu-khoan-su-dung"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Điều khoản sử dụng
-                </Link>
+              <div
+                className="g-fb"
+                // onClick={() =>
+                //     window.open(process.env.REACT_APP_LINK_YOUTUBE, "_blank")
+                // }
+              >
+                <FaYoutube className="yt" />
+              </div>
+              <div
+                className="g-fb"
+                // onClick={() =>
+                //     window.open(process.env.REACT_APP_LINK_TIKTOK, "_blank")
+                // }
+              >
+                <FaTiktok className="tiktok" />
+              </div>
+              <div
+                className="g-fb"
+                onClick={() =>
+                    window.open('https://zalo.me/0785226236', "_blank")
+                }
+              >
+                <SiZalo className="zalo" />
               </div>
             </div>
+          </div>
 
-            <div className="col-span-1">
-              <p className="ft font-semibold uppercase text-lg">
-                Vì sao chọn TM Book
-              </p>
-              <div className="capitalize text-sm grid gap-2">
-                <Link
-                  href={"/gioi-thieu"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Giới thiệu TM Book
-                </Link>
+          <div className="col-span-1">
+            <p className="ft font-semibold text-xl">DANH MỤC</p>
+            <div className="list-none uppercase grid gap-2">
+              <Link href={"/"} className="cursor-pointer">
+                trang chủ
+              </Link>
 
-                <Link
-                  href={"/thong-tin/bao-doc-sach-hay"}
-                  className="cursor-pointer hover:pl-3 duration-200"
-                >
-                  Bao đọc sách hay
-                </Link>
-              </div>
+              <Link href={"/gioi-thieu"} className="cursor-pointer">
+                giới thiệu
+              </Link>
+              <Link href={"/shop"} className="cursor-pointer">
+                Shop
+              </Link>
+              <Link href={"/tin-tuc"} className="cursor-pointer">
+                tin tức
+              </Link>
+              <Link href={"/lien-he"} className="cursor-pointer">
+                liên hệ
+              </Link>
             </div>
+          </div>
 
-            {/* <div className="col-span-1">
-              <p className="ft font-semibold uppercase text-lg">FANPAGE</p>
-              <Fanpage />
-            </div> */}
-            <div className="col-span-1">
-              <p className="ft font-semibold uppercase text-lg">
-                Kết nối với TM Book
-              </p>
+          <div className="col-span-1 inline-block overflow-hidden">
+            <p className="ft text-xl font-semibold">FANPAGE</p>
 
-              <div className="center-icon mt-5">
-                <div
-                  className="g-fb"
-                  onClick={() =>
-                    window.open(
-                      "https://www.facebook.com/tmsoftwarevietnam",
-                      "_blank"
-                    )
-                  }
-                >
-                  <FaFacebookF className="fb" />
-                </div>
-
-                <div
-                  className="g-fb"
-                  // onClick={() =>
-                  //     window.open(process.env.REACT_APP_LINK_YOUTUBE, "_blank")
-                  // }
-                >
-                  <FaYoutube className="yt" />
-                </div>
-                <div
-                  className="g-fb"
-                  // onClick={() =>
-                  //     window.open(process.env.REACT_APP_LINK_TIKTOK, "_blank")
-                  // }
-                >
-                  <FaTiktok className="tiktok" />
-                </div>
-                <div
-                  className="g-fb"
-                  // onClick={() =>
-                  //     window.open('https://zalo.me/0785226236', "_blank")
-                  // }
-                >
-                  <SiZalo className="zalo" />
-                </div>
-              </div>
-            </div>
+            <Fanpage />
           </div>
         </div>
-        <div className="bg-gray-200 py-3 px-2 text-xs !text-black">
-          <div className="container">
-            <div className="w-fit mx-auto text-center">
-              © 2024 - Bản quyền của Công ty TNHH Quảng Cáo Truyền Thông TM
-              Branding
-            </div>
-            <div className="w-fit mx-auto text-center">
-              Giấy chứng nhận Đăng ký Kinh doanh số 0316554974 do Sở Kế hoạch và
-              Đầu tư Thành phố Hồ Chí Minh cấp ngày 23/10/2020
-            </div>
-          </div>
+        <div
+          onClick={() => window.open("https://tmsoftware.vn/", "_blank")}
+          className="w-fit mx-auto text-xs mt-3 text-gray-100 cursor-pointer"
+        >
+          Design by TM Software
         </div>
       </div>
+    </div>
 
-      <Social />
+      <Social />          
+      
     </>
   );
 };

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { IoIosPlayCircle } from "react-icons/io";
 
-const CourseSection = ({ sectionDetails }) => {
+const CourseSection = ({ sectionDetails , setOpen}) => {
   const { title, items } = sectionDetails;
 
   const [open, toggleOpen] = useState(false);
@@ -37,8 +37,10 @@ const CourseSection = ({ sectionDetails }) => {
               </div>
 
               {item.can_be_previewed ? (
-                <span className="hidden sm:block cursor-pointer text-blue-600">
-                  Review
+                <span 
+                onClick={() => setOpen(true)}
+                className="hidden sm:block cursor-pointer text-blue-600">
+                  Xem trước
                 </span>
               ) : (
                 <span></span>

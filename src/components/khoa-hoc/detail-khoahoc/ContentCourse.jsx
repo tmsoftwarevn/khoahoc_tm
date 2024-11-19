@@ -329,7 +329,7 @@ const khoa_hoc = {
 };
 
 const ContentCourse = (props) => {
-  const { detail } = props;
+  const { detail, setOpen } = props;
 
   return (
     <div>
@@ -339,7 +339,7 @@ const ContentCourse = (props) => {
 
       <List>
         {khoa_hoc.sections.map((section, idx) => {
-          const sectionComponent = <CourseSection sectionDetails={section} />;
+          const sectionComponent = <CourseSection setOpen= {setOpen} sectionDetails={section} />;
           return (
             <ListItem key={`dsr${idx}`} disablePadding className="border w-full border-gray-300 p-0">
               {sectionComponent}

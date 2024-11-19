@@ -9,20 +9,8 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    // extend: {},
-    extend: {
-      keyframes: {
-        ripple: {
-          '0%': { transform: 'scale(0)', opacity: '1' },
-          '100%': { transform: 'scale(3)', opacity: '0' },
-        },
-        
-      },
-      animation: {
-        ripple: 'ripple 1s ease-out forwards', // card css
-        
-      },
-    },
+    extend: {},
+    
   },
   plugins: [],
 }

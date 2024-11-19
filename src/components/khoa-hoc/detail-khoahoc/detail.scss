@@ -1,0 +1,23 @@
+.detail {
+    &__content {
+        padding: 15px;
+        .show-more-btn {
+            padding: 20px 0;
+            background: #fff;
+            text-align: center;
+            display: block;
+            position: relative;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                bottom: 100%;
+                left: 0;
+                height: 100px;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+                z-index: 5;
+            }
+        }
+    }
+}

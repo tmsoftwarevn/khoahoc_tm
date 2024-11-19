@@ -1,6 +1,6 @@
 .ft {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     &::before {
         position: absolute;
         content: '';
@@ -10,10 +10,26 @@
         left: 0;
         background: white;
     }
-    
+    // &::after {
+    //     position: absolute;
+    //     content: '';
+    //     width: 4px;
+    //     height: 4px;
+    //     bottom: 0;
+    //     left: 50px;
+    //     background: black;
+    // }
 }
 
+.footer {
+    //background-color: rgb(216, 156, 45);
+    background-color: #e94539;
 
+    padding: 30px 0 10px;
+    //background-image: url('/bg-ft.png');
+    // background-position: center center;
+    // background-repeat: no-repeat;
+}
 
 .ul-ft {
     padding: 0 !important;
@@ -32,18 +48,15 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        //border: 1px solid orange;
-        border: 1px solid white;
+        border: 1px solid #ccc;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        //color: orange;   
-        color: white;
+        color: white;   // change
         &:hover {
-            color: white;
-            background-color: orange;
-            
+            color: orange;
+            background-color: white;
             transition: 0.3s;
         }
         .fb {

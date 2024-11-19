@@ -10,20 +10,20 @@ const Gioithieu_Home = () => {
   let [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetch_Gioithieu = async () => {
-      const res = await fetch(`${process.env.URL_BACKEND}/api/v1/about`);
-      const result = await res.json();
+  // useEffect(() => {
+  //   const fetch_Gioithieu = async () => {
+  //     const res = await fetch(`${process.env.URL_BACKEND}/api/v1/about`);
+  //     const result = await res.json();
 
-      if (result && result.data) {
-        setDescription(result.data[0]?.description);
-        setIsLoading(false);
-      }
-    };
-    fetch_Gioithieu();
-  }, []);
+  //     if (result && result.data) {
+  //       setDescription(result.data[0]?.description);
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetch_Gioithieu();
+  // }, []);
 
-  if (isLoading) return <LoadingCss />;
+  // if (isLoading) return <LoadingCss />;
 
   return (
     <div>
