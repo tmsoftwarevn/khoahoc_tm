@@ -1,0 +1,11 @@
+@import '../../scss/responsive.scss';
+
+.left-video {
+    overflow-y: auto;
+    height: 96vh;
+}
+
+.right-video {
+    overflow-y: scroll;
+    
+}

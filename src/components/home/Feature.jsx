@@ -1,59 +1,86 @@
-import Image from "next/image";
+import React from "react";
+import PropTypes from "prop-types";
+import {
+  faCamera,
+  faCannabis,
+  faRandom,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Feature = () => {
-  let arr = [1, 2, 3, 4, 5, 6];
+const features = [
+  {
+    icon: faCannabis,
+    title: "Product Design",
+    description:
+      "Bearing bearing form night spirit, for signs isn't, tree fourth i there two land deep man without seasons fill itself.",
+  },
+  {
+    icon: faRandom,
+    title: "Branding",
+    description:
+      "Third abundantly us after cattle won't is land heaven us whales grass bearing seasons fruitful own beast deep fruit him.",
+  },
+  {
+    icon: faCamera,
+    title: "Photography",
+    description:
+      "Man our from light they're cattle upon created female. You first land evening beast won't had bring first void meat.",
+  },
+];
+
+const FeatureItem = ({ feature }) => {
   return (
-    <div className="mt-20">
-      <div className="container">
-        <h2 className="text-center my-5 text-blue-600">LỢI ÍCH KHI ĐĂNG KÍ KHÓA HỌC</h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {arr.map((item, idx) => {
-            return (
-              <div
-                key={`mdls${idx}`}
-                className="group pb-24 relative overflow-hidden rounded-xl"
-              >
-                <div className="group-hover:translate-y-0 transition-all duration-700 translate-y-full top-0 right-0 bottom-24 left-0 absolute  z-10"></div>
-                <Image
-                  src="/123.jpg"
-                  className=" transition-all group-hover:scale-125 duration-700 mr-4 h-[250px] w-full "
-                  alt="sd"
-                  loading="lazy"
-                  width="0"
-                  height="0"
-                  sizes="100vw"
-                  style={{ objectFit: "cover" }}
-                />
-
-                <div className="bg-orange-600 absolute z-10 bottom-0 left-0 w-full h-[120px] flex flex-col justify-center items-center">
-                  <div className="z-20 absolute -top-5 w-full flex justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      className="group-hover:bg-white group-hover:text-orange-600 group-hover:rotate-180 w-10 h-10 bg-black text-white p-2 rounded-full transition-all"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-                      />
-                    </svg>
-                  </div>
-                  <div className="group-hover:hidden transition-all duration-1000 w-4 absolute overflow-hidden inline-block right-0 -top-6"></div>
-                  <h2 className="font-bold">Bob haris</h2>
-                  <span className="text-white">Sales executive</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <div className="bg-blue-50 dark:bg-[#1E2735] rounded-l-[90px] relative p-6 pl-12 ml-12 mb-6 lg:mb-12">
+      <div className="w-[74px] h-[74px] bg-blue-50 dark:bg-[#1E2735] text-blue-600 rounded-full text-[32px] inline-flex items-center justify-center shadow-xl -mt-[37px] mr-11 -ml-11 absolute top-1/2 left-0 mb-6">
+        <FontAwesomeIcon icon={feature.icon} />
       </div>
+      <h4 className="text-2xl font-bold mb-4">{feature.title}</h4>
+      <p className="opacity-70">{feature.description}</p>
     </div>
   );
 };
 
-export default Feature;
+FeatureItem.propTypes = {
+  feature: PropTypes.object.isRequired,
+};
+
+const Feature15 = () => {
+  return (
+    <section className="ezy__featured15 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+      <div className="container px-4 ">
+        <div className="grid grid-cols-12 mb-12">
+          <div className="col-span-12 lg:col-span-7">
+            <h2 className="text-[25px] md:text-[45px] leading-none font-bold mb-6">
+              Our Features
+            </h2>
+            <p className="text-lg mb-6">
+              Assumenda non repellendus distinctio nihil dicta sapiente,
+              quibusdam maiores, illum at, aliquid blanditiis eligendi qui.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-12 gap-y-6 md:gap-x-6">
+          <div className="col-span-12 lg:col-span-6">
+            <div
+              className="bg-center bg-no-repeat bg-cover rounded-[20px] w-full h-full min-h-[150px] float-right lg:w-[50vw] lg:rounded-l-none"
+              style={{
+                backgroundImage:
+                  "url(https://cdn.easyfrontend.com/pictures/blog/blog_9.jpg)",
+              }}
+            ></div>
+          </div>
+          <div className="col-span-12 lg:col-span-6">
+            <div className="lg:ml-12 gap-6">
+              {features.map((feature, i) => (
+                <FeatureItem feature={feature} key={i} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Feature15;

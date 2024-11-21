@@ -43,7 +43,7 @@ const Navbar1 = () => {
         </div>
       </div>
 
-      <div className="lg:hidden">
+      <div className="hidden">
         <Space
           direction="vertical"
           className=" w-[250px] sm:w-[300px] md:w-[400px] max-w-full"
