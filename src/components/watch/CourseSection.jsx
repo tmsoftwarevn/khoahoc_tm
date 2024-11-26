@@ -3,15 +3,20 @@ import { ExpandMore } from "@mui/icons-material";
 import { useEffect } from "react";
 import { useState } from "react";
 import { IoIosPlayCircle } from "react-icons/io";
-import { useRouter } from "next/navigation";
 
-
-const CourseSection = ({ sectionDetails , setOpen}) => {
+const CourseSection = ({ sectionDetails, setLink, setOpenDraw, setTitle }) => {
   const { title, items } = sectionDetails;
-  const router  = useRouter();
+
   const [open, toggleOpen] = useState(false);
   const handleClick = () => {
     toggleOpen(!open);
+  };
+
+  const handleShowVideo = (e, item) => {
+    e.stopPropagation();
+    setLink(item.video_url);
+    setOpenDraw(false); ///  tắt draw mobile
+    setTitle(item.title);
   };
 
   return (
@@ -23,7 +28,7 @@ const CourseSection = ({ sectionDetails , setOpen}) => {
       >
         <div className="flex justify-between w-full ">
           <div className="">{title}</div>
-          <div className="hidden sm:block">2 Bài học</div>
+          {/* <div className="hidden sm:block">2 Bài học</div> */}
         </div>
       </AccordionSummary>
 
@@ -33,21 +38,13 @@ const CourseSection = ({ sectionDetails , setOpen}) => {
             <div key={idx} className="flex items-center justify-between">
               <div className="flex items-center cursor-pointer py-2">
                 <IoIosPlayCircle className="mr-2 text-blue-600 text-lg" />
-                <span onClick={() => router.push('/watch')} className="hover:text-blue-600 duration-100">
+                <span
+                  onClick={(e) => handleShowVideo(e, item)}
+                  className="hover:text-blue-600 duration-100"
+                >
                   {item.title}
                 </span>
               </div>
-
-              {item.can_be_previewed ? (
-                <span 
-                onClick={() => setOpen(true)}
-                className="hidden sm:block cursor-pointer text-blue-600">
-                  Xem trước
-                </span>
-              ) : (
-                <span></span>
-              )}
-              
             </div>
           );
         })}
