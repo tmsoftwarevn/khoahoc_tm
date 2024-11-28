@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import ContentCourse from "./ContentCourse";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -10,14 +11,18 @@ import { MdCancelPresentation } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import Video from "next-video";
 
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+import "./watch.scss";
+
 const WatchVideo = () => {
   const router = useRouter();
   const [openDraw, setOpenDraw] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const [link, setLink] = useState("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+  const [link, setLink] = useState(
+    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  );
   const [title, setTitle] = useState();
 
-  console.log('linkkkk', link)
   return (
     <div className="watch-video overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
@@ -66,11 +71,19 @@ const WatchVideo = () => {
 
         <div className="right-video col-span-1 md:col-span-3  mt-2">
           <div className="name-baihoc">{title}</div>
-          <div>
-            
-          </div>
-        </div>
 
+          <ReactPlayer
+              className="video-rp"
+              playing={true}
+              controls={true}
+              url={link}
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          
+        </div>
       </div>
 
       {/* <DrawMobile

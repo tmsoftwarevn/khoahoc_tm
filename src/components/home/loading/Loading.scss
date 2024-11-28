@@ -1,0 +1,63 @@
+
+//preloader
+
+.mil-preloader-1 {
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(38, 50, 56);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.mil-preloader-1 .mil-preloader-content {
+    width: 100%;
+    position: relative;
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    margin-bottom: 30px;
+}
+
+.mil-preloader-1 .mil-preloader-content .mil-ticker {
+    white-space: nowrap;
+}
+
+.mil-preloader-1 .mil-preloader-content .mil-ticker span {
+    margin: 0 30px;
+}
+
+.mil-preloader-1 .mil-preloader-content .mil-ticker b {
+    font-weight: inherit;
+}
+
+.mil-preloader-1 .mil-preloader-load-track {
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.mil-preloader-1 .mil-preloader-load-track .mil-preloader-load {
+    width: 0;
+    height: 100%;
+    background-color: rgb(255, 167, 38);
+}
+
+.mil-preloader-1.mill-light-preloader {
+    background-color: rgb(255, 255, 255);
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+}
