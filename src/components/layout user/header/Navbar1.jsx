@@ -31,7 +31,7 @@ const Navbar1 = () => {
 
   return (
     <div className="flex px-2 py-2 xl:px-0 justify-between text-xs sm:text-sm">
-      <div className="hidden lg:flex pb-2 items-center gap-5">
+      {/* <div className="hidden lg:flex pb-2 items-center gap-5">
         <div className="flex items-center gap-2 ">
           <MdCall />
           0987654321
@@ -41,7 +41,7 @@ const Navbar1 = () => {
           <IoMdMail />
           khoahoctm@gmail.com
         </div>
-      </div>
+      </div> */}
 
       <div className="hidden">
         <Space

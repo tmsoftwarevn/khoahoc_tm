@@ -138,7 +138,8 @@ const Footer = () => {
           <div className="col-span-1 inline-block overflow-hidden">
             <p className="ft text-xl font-semibold">FANPAGE</p>
 
-            <Fanpage />
+            {/* <Fanpage /> */}
+
           </div>
         </div>
         <div
