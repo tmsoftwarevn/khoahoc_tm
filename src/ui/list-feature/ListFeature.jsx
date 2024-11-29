@@ -1,24 +1,28 @@
 import Title from "./Title";
+import "./feature.scss";
 
 const ListFeature = (props) => {
   const { name } = props;
 
   let arr = [
     {
-      des: "30 seconds to setup",
+      des: "Thực chiến làm nội dung bài viết trên: Fanpage, Website",
     },
     {
-      des: "10 seconds to setup",
+      des: "Xây dựng chân dung khách hàng cho dự án/sản phẩm",
     },
     {
-      des: "20 seconds to setup",
+      des: "Xây dựng kênh tiktok từ 0 lên 50.000 follower,",
     },
-    
+    {
+      des: "Chạy quảng cáo Facebook cơ bản gia tăng tương tác",
+    },
   ];
 
   return (
     <div>
       <Title name={name} />
+
       <ul className="mt-3 flex flex-col space-y-2">
         {arr &&
           arr.map((item, idx) => {

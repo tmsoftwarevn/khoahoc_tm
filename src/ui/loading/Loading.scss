@@ -1,6 +1,3 @@
-
-//preloader
-
 .mil-preloader-1 {
     -webkit-filter: brightness(80%);
     filter: brightness(80%);
@@ -10,7 +7,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(38, 50, 56);
+    //background-color: rgb(38, 50, 56);
+    background-color: rgb(248, 189, 28);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -33,9 +31,9 @@
     white-space: nowrap;
 }
 
-.mil-preloader-1 .mil-preloader-content .mil-ticker span {
-    margin: 0 30px;
-}
+// .mil-preloader-1 .mil-preloader-content .mil-ticker span {
+//     margin: 0 30px;
+// }
 
 .mil-preloader-1 .mil-preloader-content .mil-ticker b {
     font-weight: inherit;
@@ -44,7 +42,8 @@
 .mil-preloader-1 .mil-preloader-load-track {
     width: 100%;
     height: 4px;
-    background-color: #000;
+    // background-color: #000;
+    background-color: #f3d025;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -53,11 +52,35 @@
 .mil-preloader-1 .mil-preloader-load-track .mil-preloader-load {
     width: 0;
     height: 100%;
-    background-color: rgb(255, 167, 38);
+    background-color: rgb(45, 51, 237);
 }
 
 .mil-preloader-1.mill-light-preloader {
     background-color: rgb(255, 255, 255);
     -webkit-filter: brightness(100%);
     filter: brightness(100%);
+}
+
+// animation
+
+.animate-charcter {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    //font-size: 80px;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
 }

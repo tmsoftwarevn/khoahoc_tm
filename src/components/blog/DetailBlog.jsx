@@ -34,7 +34,7 @@ const DetailBlog = (props) => {
     <div className="mb-5">
       <div className="sm:flex gap-10 px-2">
         <div className="w-full sm:w-9/12 mt-3">
-          <Breadcrum2 listBread={string} />
+          
           <h1 className=" uppercase text-2xl font-semibold mb-3">{detail?.tieude}</h1>
           <div
             className=""

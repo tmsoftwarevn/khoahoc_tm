@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Loading.scss";
-
+import Logo from "./Logo"
 gsap.registerPlugin(ScrollTrigger);
 
 const Preloader = () => {
@@ -24,9 +24,9 @@ const Preloader = () => {
         delay: 0.4,
       })
       .to(tickerRef.current, {
-        x: "-50%",
-        ease: "linear",
-        duration: 6,
+        // x: "-50%",
+        // ease: "linear",
+        duration: 8,
         delay: -0.4,
       })
       .to(loadRef.current, {
@@ -64,31 +64,31 @@ const Preloader = () => {
       <div className="mil-preloader-1" ref={preloaderRef}>
         <div className="mil-preloader-content" ref={preloaderContentRef}>
           <div className="mil-ticker mil-h5 mil-softened-80" ref={tickerRef}>
-            Loading <span className="mil-accent">•</span>
-            <b className="mil-text-stroke">Please wait</b>
-            <span className="mil-accent">•</span> Loading
+            {/* Welcome <span className="mil-accent">•</span>
+            <b className="mil-text-stroke">Welcome</b>
+            <span className="mil-accent">•</span> Welcome
             <span className="mil-accent">•</span>
-            <b className="mil-text-stroke">Please wait</b>
-            <span className="mil-accent">•</span> Loading{" "}
-            <span className="mil-accent">•</span>{" "}
-            <b className="mil-text-stroke">Please wait</b>{" "}
-            <span className="mil-accent">•</span> Loading{" "}
-            <span className="mil-accent">•</span>{" "}
-            <b className="mil-text-stroke">Please wait</b>
-            <span className="mil-accent">•</span> Loading{" "}
-            <span className="mil-accent">•</span> Please wait{" "}
-            <span className="mil-accent">•</span> Loading{" "}
-            <span className="mil-accent">•</span>{" "}
-            <b className="mil-text-stroke">Please wait</b>{" "}
+            <b className="mil-text-stroke">Welcome</b>
+            <span className="mil-accent">•</span> Welcome
             <span className="mil-accent">•</span>
+            <b className="mil-text-stroke">Welcome</b>
+            <span className="mil-accent">•</span> Welcome
+            <span className="mil-accent">•</span>
+            <b className="mil-text-stroke">Welcome</b>
+            <span className="mil-accent">•</span> Welcome
+            <span className="mil-accent">•</span> Welcome
+            <span className="mil-accent">•</span> Welcome
+            <span className="mil-accent">•</span>
+            <b className="mil-text-stroke">Welcome</b>
+            <span className="mil-accent">•</span> */}
+            <Logo />
+
           </div>
         </div>
         <div className="mil-preloader-load-track" ref={loadTrackRef}>
           <div className="mil-preloader-load" ref={loadRef} />
         </div>
       </div>
-
-      
     </>
   );
 };
