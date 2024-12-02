@@ -9,7 +9,7 @@ import LoadingPre from "@/ui/loading/Loading";
 import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
-
+import Appearance from "@/ui/appearance/Appearance";
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
@@ -25,7 +25,12 @@ export default function Home() {
 
         <Feature />
 
-        <Course />
+        <Appearance
+          initialProps={{ opacity: 0, y: 100, scale: 0.9 }}
+          finalProps={{ opacity: 1, y: 0, scale: 1 }}
+        >
+          <Course />
+        </Appearance>
 
         <div className="mb-10"></div>
 

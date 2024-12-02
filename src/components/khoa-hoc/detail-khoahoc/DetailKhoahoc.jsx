@@ -19,17 +19,20 @@ const DetailKhoahoc = (props) => {
         </div>
 
         <div className="col-span-3 lg:col-span-1 relative w-full">
-          <div className="lg:absolute p-3 right-0 w-full">
+          <div className="hidden lg:block lg:absolute p-3 right-0 w-full">
             <Sticky innerZ={5} top={10}>
               <StickyCardContent setOpen={setOpen} />
             </Sticky>
+          </div>
+          <div className="lg:hidden">
+            <StickyCardContent setOpen={setOpen} />
           </div>
         </div>
       </div>
 
       <div className="px-2 grid grid-cols-3">
         <div className="col-span-3 lg:col-span-2">
-          <ContentCourse setOpen = {setOpen} />
+          <ContentCourse setOpen={setOpen} />
         </div>
       </div>
 
@@ -58,7 +61,6 @@ const DetailKhoahoc = (props) => {
           />
         </div>
       </ModalVideo> */}
-
     </div>
   );
 };

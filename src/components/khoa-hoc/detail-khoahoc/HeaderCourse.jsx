@@ -18,7 +18,7 @@ const HeaderCourse = () => {
         like to be overwhelmed with boring and mundane.
       </div>
 
-      <div className="flex items-center gap-2 lg:gap-10">
+      {/* <div className="flex items-center gap-5 lg:gap-10">
         <div className="flex items-center ">
           <GoClock className="mr-1 font-bold" />
           <span>10 giờ 25 phút</span>
@@ -27,11 +27,12 @@ const HeaderCourse = () => {
           <IoIosPlayCircle className="mr-1" />
           <span>20 bài giảng</span>
         </div>
-        <div className="flex items-center ">
+        <div className="items-center hidden md:flex ">
           <FaTag className="mr-1" />
           <span>Mọi trình độ</span>
         </div>
-      </div>
+      </div> */}
+
     </div>
   );
 };

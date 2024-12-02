@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import "./stickyCard.scss";
+import CourseInclude from "@/components/khoa-hoc/detail-khoahoc/CourseInclude";
 
 const StickyCardContent = (props) => {
   const { setOpen } = props;
@@ -44,6 +45,7 @@ const StickyCardContent = (props) => {
           mua ngay
         </button>
 
+        <CourseInclude />
       </div>
     </div>
   );

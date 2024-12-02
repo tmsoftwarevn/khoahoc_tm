@@ -1,29 +1,11 @@
-// "use client"
-// import CardCourse from "../card/CardCourse";
-
-// const Khoahoc = () => {
-//   let arr = [1, 2, 3];
-//   return (
-//     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-//       {arr.map((item, idx) => {
-//         return (
-//           <div key={`ppp${idx}`} className="col-span-1">
-//             <CardCourse  item= {item}/>
-//           </div>
-//         );
-//       })}
-
-//     </div>
-//   );
-// };
-
-// export default Khoahoc;
 "use client";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { useRouter } from "next/navigation";
+import Appearance from "@/ui/appearance/Appearance";
+
 
 const pricingList = [
   {
@@ -84,6 +66,7 @@ const PricingItem = ({ item }) => {
 
   return (
     <div className="bg-gray-50 shadow-xl dark:bg-slate-800 h-full">
+
       <div className="relative">
         <div className="flex justify-center items-center text-xl w-16 h-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-white bg-opacity-50 rounded-full cursor-pointer before:absolute before:top-1/2 before:left-1/2">
           <FontAwesomeIcon icon={faPlay} className="ml-1" />
@@ -96,7 +79,7 @@ const PricingItem = ({ item }) => {
           </p>
         </div>
       </div>
-      <div className="p-6">
+      <div className="p-6 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white ">
         <a href="#!">
           <p className="text-[15px] opacity-80 mb-2">{category}</p>
         </a>
@@ -119,8 +102,9 @@ const PricingItem = ({ item }) => {
             </div>
           </div>
           <button
-          onClick={() => route.push('/khoa-hoc/ưer')}
-           className="border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white duration-300 d-flex align-items-center">
+            onClick={() => route.push("/khoa-hoc/ưer")}
+            className="border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white duration-300 d-flex align-items-center"
+          >
             Chi tiết
           </button>
         </div>
@@ -147,67 +131,67 @@ Countdown.propTypes = {
 };
 
 const Pricing12 = () => {
-    const total12HoursInSeconds = 12 * 60 * 60; // 12 hours in seconds
+  const total12HoursInSeconds = 12 * 60 * 60; // 12 hours in seconds
 
-    const calculateTime = (totalSeconds) => {
-      const hours = Math.floor(totalSeconds / (60 * 60));
-      const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-      const seconds = totalSeconds % 60;
-  
-      return [
-        { time: hours, type: "Hours" },
-        { time: minutes, type: "Minutes" },
-        { time: seconds, type: "Seconds" },
-      ];
+  const calculateTime = (totalSeconds) => {
+    const hours = Math.floor(totalSeconds / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+
+    return [
+      { time: hours, type: "Hours" },
+      { time: minutes, type: "Minutes" },
+      { time: seconds, type: "Seconds" },
+    ];
+  };
+
+  const [countdown, setCountdown] = useState([]);
+  const [endTime, setEndTime] = useState(null);
+
+  useEffect(() => {
+    // Retrieve or initialize countdown end time
+    const initializeCountdown = () => {
+      const now = new Date().getTime();
+      const storedEndTime = localStorage.getItem("countdownEndTime");
+
+      if (storedEndTime) {
+        const remainingSeconds = Math.max(
+          0,
+          Math.floor((storedEndTime - now) / 1000)
+        );
+        setEndTime(storedEndTime);
+        setCountdown(calculateTime(remainingSeconds));
+      } else {
+        const newEndTime = now + total12HoursInSeconds * 1000;
+        localStorage.setItem("countdownEndTime", newEndTime);
+        setEndTime(newEndTime);
+        setCountdown(calculateTime(total12HoursInSeconds));
+      }
     };
-  
-    const [countdown, setCountdown] = useState([]);
-    const [endTime, setEndTime] = useState(null);
-  
-    useEffect(() => {
-      // Retrieve or initialize countdown end time
-      const initializeCountdown = () => {
-        const now = new Date().getTime();
-        const storedEndTime = localStorage.getItem("countdownEndTime");
-  
-        if (storedEndTime) {
-          const remainingSeconds = Math.max(
-            0,
-            Math.floor((storedEndTime - now) / 1000)
-          );
-          setEndTime(storedEndTime);
-          setCountdown(calculateTime(remainingSeconds));
-        } else {
+
+    initializeCountdown();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      if (endTime) {
+        const remainingSeconds = Math.max(
+          0,
+          Math.floor((endTime - now) / 1000)
+        );
+
+        if (remainingSeconds === 0) {
           const newEndTime = now + total12HoursInSeconds * 1000;
           localStorage.setItem("countdownEndTime", newEndTime);
           setEndTime(newEndTime);
           setCountdown(calculateTime(total12HoursInSeconds));
+        } else {
+          setCountdown(calculateTime(remainingSeconds));
         }
-      };
-  
-      initializeCountdown();
-  
-      const timer = setInterval(() => {
-        const now = new Date().getTime();
-        if (endTime) {
-          const remainingSeconds = Math.max(
-            0,
-            Math.floor((endTime - now) / 1000)
-          );
-  
-          if (remainingSeconds === 0) {
-            const newEndTime = now + total12HoursInSeconds * 1000;
-            localStorage.setItem("countdownEndTime", newEndTime);
-            setEndTime(newEndTime);
-            setCountdown(calculateTime(total12HoursInSeconds));
-          } else {
-            setCountdown(calculateTime(remainingSeconds));
-          }
-        }
-      }, 1000);
-  
-      return () => clearInterval(timer);
-    }, [endTime]);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [endTime]);
 
   return (
     <section className="ezy__pricing12 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white relative overflow-hidden z-[1]">
@@ -238,9 +222,12 @@ const Pricing12 = () => {
           ))}
         </div>
 
+        {/* className="col-span-1 text-sm flex uppercase cursor-pointer px-5 py-2 bg-white relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-orange-500 before:-z-10  before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 hover:text-white text-orange-500" */}
+
+
         <div className="grid grid-cols-6 gap-6 mt-12 max-w-7xl mx-auto">
           {pricingList.map((item, i) => (
-            <div className="col-span-6 sm:col-span-3 lg:col-span-2" key={i}>
+            <div className="col-span-6 sm:col-span-3 lg:col-span-2 " key={i}>
               <PricingItem item={item} />
             </div>
           ))}
@@ -251,4 +238,3 @@ const Pricing12 = () => {
 };
 
 export default Pricing12;
-

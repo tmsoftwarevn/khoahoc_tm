@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Appearance from "@/ui/appearance/Appearance";
 import ListFeature from "@/ui/list-feature/ListFeature";
+import "./feature.scss";
 
 const features = [
   {
@@ -62,9 +63,9 @@ const Feature15 = () => {
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                 <img
                   loading="lazy"
-                  width={647}
-                  height={486}
-                  className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                  // width={647}
+                  // height={486}
+                  className="w-full image-3d-left rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                   style={{ color: "transparent" }}
                   src="https://images.unsplash.com/photo-1569144157591-c60f3f82f137"
                 />
@@ -127,8 +128,8 @@ const Feature15 = () => {
                 <img
                   alt="Inbox user interface"
                   loading="lazy"
-                  width={647}
-                  height={486}
+                  //width='100%'
+                  //height=''
                   className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
                   style={{ color: "transparent" }}
                   src="https://images.unsplash.com/photo-1599134842279-fe807d23316e"
@@ -152,9 +153,9 @@ const Feature15 = () => {
               <div className="-mr-48 pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
                 <img
                   loading="lazy"
-                  width={646}
-                  height={485}
-                  className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                  // width={646}
+                  // height={485}
+                  className="w-full image-3d-right rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                   style={{ color: "transparent" }}
                   src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e"
                 />
