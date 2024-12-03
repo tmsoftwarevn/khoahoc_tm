@@ -60,8 +60,8 @@ function ThisCourseIncludes({ details }) {
           >
             <div className={`mr-4 text-lg ${color}`}>{icon}</div>
             <div className="flex justify-between w-full text-sm">
-              <span className="font-medium text-gray-800">{label}</span>
-              <span className="font-bold text-gray-900">{value}</span>
+              <span className="font-medium md:text-lg text-gray-800">{label}</span>
+              <span className=" md:text-lg ">{value}</span>
             </div>
           </ListItem>
         ))}

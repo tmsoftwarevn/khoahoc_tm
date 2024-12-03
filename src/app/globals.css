@@ -62,11 +62,6 @@ p {
   margin: 0.75em 0;
 }
 
-/* // CKEDITOR */
-
-.ck-editor__editable .ck-list-bogus-paragraph {
-  display: unset !important;
-}
 
 
 body {

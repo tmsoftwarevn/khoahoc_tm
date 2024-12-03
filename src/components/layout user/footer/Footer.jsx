@@ -138,7 +138,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <Social />
+      {/* <Social /> */}
     </>
   );
 };

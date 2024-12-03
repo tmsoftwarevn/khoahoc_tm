@@ -10,42 +10,6 @@ import Appearance from "@/ui/appearance/Appearance";
 import ListFeature from "@/ui/list-feature/ListFeature";
 import "./feature.scss";
 
-const features = [
-  {
-    icon: faCannabis,
-    title: "Product Design",
-    description:
-      "Bearing bearing form night spirit, for signs isn't, tree fourth i there two land deep man without seasons fill itself.",
-  },
-  {
-    icon: faRandom,
-    title: "Branding",
-    description:
-      "Third abundantly us after cattle won't is land heaven us whales grass bearing seasons fruitful own beast deep fruit him.",
-  },
-  {
-    icon: faCamera,
-    title: "Photography",
-    description:
-      "Man our from light they're cattle upon created female. You first land evening beast won't had bring first void meat.",
-  },
-];
-
-const FeatureItem = ({ feature }) => {
-  return (
-    <div className="bg-blue-50 dark:bg-[#1E2735] rounded-l-[90px] relative p-6 pl-12 ml-12 mb-6 lg:mb-12">
-      <div className="w-[74px] h-[74px] bg-blue-50 dark:bg-[#1E2735] text-blue-600 rounded-full text-[32px] inline-flex items-center justify-center shadow-xl -mt-[37px] mr-11 -ml-11 absolute top-1/2 left-0 mb-6">
-        <FontAwesomeIcon icon={feature.icon} />
-      </div>
-      <h4 className="text-2xl font-bold mb-4">{feature.title}</h4>
-      <p className="opacity-70">{feature.description}</p>
-    </div>
-  );
-};
-
-FeatureItem.propTypes = {
-  feature: PropTypes.object.isRequired,
-};
 
 const Feature15 = () => {
   return (
@@ -57,6 +21,7 @@ const Feature15 = () => {
         <div className="relative">
           <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 ">
             <div className="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 ">
+              
               <ListFeature />
             </div>
             <div className="mt-12 sm:mt-16 lg:mt-0">

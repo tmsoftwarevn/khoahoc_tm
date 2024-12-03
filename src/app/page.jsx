@@ -10,6 +10,7 @@ import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import Appearance from "@/ui/appearance/Appearance";
+import Social from "@/components/social/Social";
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
@@ -37,6 +38,8 @@ export default function Home() {
         <Footer />
       </ScrollGlobal>
 
+      <Social />
+      
       <ModalVideo
         channel="youtube"
         autoplay={true}

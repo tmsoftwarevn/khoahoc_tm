@@ -8,6 +8,7 @@ import "react-modal-video/scss/modal-video.scss";
 import { Metadata } from "next";
 import { Roboto } from 'next/font/google';
 
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://tmbook.vn'),
   title: 'TM khóa học',
@@ -47,8 +48,8 @@ export default function RootLayout({
       <body >
 
 
-        {children}
-
+        {children}  
+        
 
       </body>
     </html>

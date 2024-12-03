@@ -8,7 +8,7 @@ const StickyCardContent = (props) => {
   const { setOpen } = props;
 
   return (
-    <div className="shadow-sm shadow-gray-400">
+    <div className="shadow-sm shadow-gray-400 sticky-card">
       <div className="relative">
         <Image
           loading="lazy"
