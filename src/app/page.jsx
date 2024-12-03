@@ -11,6 +11,7 @@ import { useState } from "react";
 import ModalVideo from "react-modal-video";
 import Appearance from "@/ui/appearance/Appearance";
 import Social from "@/components/social/Social";
+import Test from "@/ui/test/Test";
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
@@ -23,6 +24,8 @@ export default function Home() {
         <Header />
 
         <Hero isOpen={isOpen} setOpen={setOpen} />
+
+        {/* <Test /> */}
 
         <Feature />
 

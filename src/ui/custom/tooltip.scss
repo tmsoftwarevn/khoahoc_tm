@@ -3,7 +3,7 @@
     cursor: pointer;
     display: flex;
     justify-content: flex-start;
-    padding-right: 170px;
+    // padding-right: 170px;
   }
   .item-hints .hint {
     
@@ -14,7 +14,7 @@
   }
   .item-hints .hint-dot {
     z-index: 3;
-    border: 1px solid #ffe4e4;
+    border: 1px solid rgb(241, 107, 107);
     border-radius: 50%;
     width: 60px;
     height: 60px;

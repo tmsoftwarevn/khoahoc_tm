@@ -63,7 +63,6 @@ p {
 }
 
 
-
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -71,24 +70,30 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-/* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
- 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(60, 60, 245); 
   border-radius: 10px;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: blue; 
+}
+
+
+.slick-dots li button:before{
+  font-size: 14px !important;
+  color: white !important;
+}
+
+.slick-dots li.slick-active button:before{
+  color: blue !important;
+}
+
+.slick-dots{
+  bottom: 10px !important;
 }

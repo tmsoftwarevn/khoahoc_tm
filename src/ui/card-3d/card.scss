@@ -1,0 +1,24 @@
+.card-3d {
+   width: 100%;
+    background-color: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card-3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Additional hover effect */
+.card-3d:hover {
+    transform: rotateX(10deg) rotateY(10deg);
+}
