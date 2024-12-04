@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import "./hero.scss";
 import ToolTipButton from "@/ui/custom/ToolTipButton";
+import ButtonHover from "@/ui/custom/ButtonHover";
 
 import Slider from "react-slick";
 
@@ -138,7 +139,9 @@ const Hero = (props) => {
                           </div>
                           <div className="h-4 border-l border-gray-700" />
 
-                          <ToolTipButton />
+                          {/* <ToolTipButton /> */}
+                          <ButtonHover />
+
                         </div>
                       </div>
                     </div>
