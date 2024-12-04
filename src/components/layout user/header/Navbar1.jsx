@@ -6,6 +6,7 @@ import { Badge, Button, Input, Space } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import Text from "@/ui/test/Test";
 
 const Navbar1 = () => {
   const router = useRouter();
@@ -26,8 +27,6 @@ const Navbar1 = () => {
       handleSearch();
     }
   };
- 
-
 
   return (
     <div className="flex px-2 xl:px-0 justify-between text-xs sm:text-sm">
@@ -68,7 +67,7 @@ const Navbar1 = () => {
           </Space.Compact>
         </Space>
       </div>
-      <div className="flex justify-end py-2 pr-2 items-center gap-10 w-full">
+      <div className="flex justify-end py-2 pr-2 items-center gap-5 w-full">
         {isAuthenticated ? (
           <>
             <div class="dropdown relative inline-flex group">
@@ -168,21 +167,36 @@ const Navbar1 = () => {
           </>
         ) : (
           <>
-            <div
-              className="flex items-center gap-1 cursor-pointer hover:underline "
+            {/* <div
+              className="flex items-center  hover:text-blue-500 duration-150 gap-1 cursor-pointer hover:underline "
               onClick={() => router.push("/login")}
             >
               <IoIosLogIn />
               Đăng nhập
+            </div> */}
+            <div
+              className="flex items-center px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-600 rounded-md shadow-md gap-2 cursor-pointer hover:from-purple-500 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300"
+              onClick={() => router.push("/login")}
+            >
+              <IoIosLogIn className="text-xl" />
+              <span className="font-medium">Đăng nhập</span>
             </div>
 
             <div
-              className="flex items-center gap-1 cursor-pointer hover:underline"
+              className="flex items-center px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-600 rounded-md shadow-md gap-2 cursor-pointer hover:from-purple-500 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300"
+              onClick={() => router.push("/login")}
+            >
+              <MdKey className="text-xl" />
+              <span className="font-medium">Đăng ký</span>
+            </div>
+
+            {/* <div
+              className="flex items-center  gap-1 cursor-pointer hover:text-blue-500 duration-150 hover:underline"
               onClick={() => router.push("/register")}
             >
               <MdKey />
               Đăng ký
-            </div>
+            </div> */}
           </>
         )}
       </div>

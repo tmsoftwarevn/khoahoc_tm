@@ -8,7 +8,7 @@ import Social from "@/components/social/Social";
 import ModalVideo from "react-modal-video";
 import { useState } from "react";
 
-const page = () => {
+const Khoahoc = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -37,4 +37,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Khoahoc;

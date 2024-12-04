@@ -62,7 +62,7 @@ const Contact = () => {
     });
   };
   return (
-    <section className="py-24">
+    <section className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="lg:mb-0 mb-10">
@@ -167,7 +167,7 @@ const Contact = () => {
               className="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
               placeholder="Phone"
             />
-            <div className="mb-10">
+            {/* <div className="mb-10">
               <h4 className="text-gray-500 text-lg font-normal leading-7 mb-4">
                 Preferred method of communication
               </h4>
@@ -203,7 +203,7 @@ const Contact = () => {
                   </label>
                 </div>
               </div>
-            </div>
+            </div> */}
             <input
               type="text"
               className="w-full h-12 text-gray-600 placeholder-gray-400 bg-transparent text-lg shadow-sm font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"

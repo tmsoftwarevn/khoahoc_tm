@@ -79,11 +79,11 @@ html {
   background: #f1f1f1; 
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(60, 60, 245); 
+  background: rgb(101, 101, 231); 
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: blue; 
+  background: rgb(53, 53, 239); 
 }
 
 /* custom carousel */

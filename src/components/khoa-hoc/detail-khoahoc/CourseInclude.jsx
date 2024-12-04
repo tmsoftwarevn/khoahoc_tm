@@ -9,11 +9,11 @@ import { FaVideo } from "react-icons/fa";
 
 function ThisCourseIncludes({ details }) {
   const icons = [
-    <AddIcon className="text-blue-500" />,
-    <AddIcon className="text-blue-500" />,
-    <AddIcon className="text-blue-500" />,
-    <AddIcon className="text-blue-500" />,
-    <AddIcon className="text-blue-500" />,
+    <AddIcon key={'dsad'} className="text-blue-500" />,
+    <AddIcon key={'cxc'} className="text-blue-500" />,
+    <AddIcon key={'dsad23'} className="text-blue-500" />,
+    <AddIcon key={'dsadưe'} className="text-blue-500" />,
+    <AddIcon key={'dsad45'} className="text-blue-500" />,
   ];
 
   const itemsText = [
@@ -54,7 +54,7 @@ function ThisCourseIncludes({ details }) {
           },
         ].map(({ icon, label, value, color }, index) => (
           <ListItem
-            key={index}
+            key={`kkk${index}`}
             disablePadding
             className="flex items-center py-3"
           >

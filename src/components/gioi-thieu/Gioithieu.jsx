@@ -8,7 +8,7 @@ const AboutUs8 = () => {
           <div className="col-span-12 lg:col-span-6 mb-6 lg:mb-0">
             <div className="relative">
               <h1 className="text-2xl md:text-4xl font-bold mb-4">
-                I'm Jesica
+                Im Jesica
               </h1>
               <p className="opacity-75 mb-2">
                 Completely network collaborative web services via user-centric

@@ -1,18 +1,18 @@
 "use client";
 
 import Navbar1 from "./Navbar1";
-
 import { useEffect, useState } from "react";
 import { VscThreeBars } from "react-icons/vsc";
 import ResponsiveHeader from "./Responsive";
-
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import ToolTip2 from "@/ui/custom/ToolTipButton";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
   const [dropdown, setDropdown] = useState([
-    { name: "khóa marketing", slug: "slug" },
+    { name: "khóa học marketing", slug: "slug" },
+    { name: "khóa học thiết kế đồ họa", slug: "slugeee" },
   ]);
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -33,7 +33,8 @@ const Header = () => {
   return (
     //sticky top-0 left-0 w-full z-50 shadow
     //bg-gradient-to-tr from-blue-400 to-green-200
-    <div className="">
+    //bg-[url('/bg-header.jpg')] bg-cover bg-center bg-no-repeat
+    <div className="border-b border-gray-200">
       <div className="container">
         <Navbar1 />
         <div className="flex justify-between items-center pb-2 px-2 xl:px-0">
@@ -51,10 +52,14 @@ const Header = () => {
             />
           </div>
 
-          <ul className="hidden lg:flex gap-10 uppercase list-none">
+          <ul className="hidden lg:flex gap-5 uppercase list-none ">
             <li
-              className="group relative cursor-pointer"
               onClick={() => router.push("/gioi-thieu")}
+              className={
+                pathname.startsWith("/gioi-thieu")
+                  ? "cursor-pointer px-4 py-2 rounded shadow-xs relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white bg-blue-600 text-white"
+                  : "cursor-pointer px-4 py-2 rounded shadow-xs text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
+              }
             >
               <div className="flex items-center gap-1">
                 <Image
@@ -63,34 +68,25 @@ const Header = () => {
                   width="0"
                   height="0"
                   sizes="100vw"
-                  className="w-[30px] h-auto object-cover"
+                  className="w-[20px] h-auto object-cover"
                 />
                 giới thiệu
               </div>
-              <span
-                className={
-                  pathname === "/gioi-thieu"
-                    ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
-              <span
-                className={
-                  pathname === "/gioi-thieu"
-                    ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
             </li>
 
             <li className="group relative cursor-pointer uppercase">
               <div className="dropdown relative inline-flex group">
                 <div
+                onClick={() => router.push("/khoa-hoc")}
                   id="dropdown-hover"
                   type="button"
-                  className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2   cursor-pointer text-center shadow-xs transition-all duration-500 "
+                  //className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2   cursor-pointer text-center shadow-md transition-all duration-500 cursor-pointer px-4 py-2 rounded shadow-md text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
+                  className={
+                    pathname.startsWith("/khoa-hoc")
+                      ? "dropdown-toggle uppercase inline-flex justify-center items-center gap-2   cursor-pointer text-center shadow-xs transition-all duration-500 cursor-pointer px-4 py-2 rounded relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white bg-blue-600 text-white"
+                      : "dropdown-toggle uppercase inline-flex justify-center items-center gap-2   cursor-pointer text-center shadow-xs transition-all duration-500 cursor-pointer px-4 py-2 rounded text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white"
+                  }
                 >
-                  {/* <span onClick={() => router.push("/khoa-hoc")}>Khóa học</span> */}
                   <div className="flex items-center gap-1">
                     <Image
                       src="/icon_2.svg"
@@ -98,22 +94,22 @@ const Header = () => {
                       width="0"
                       height="0"
                       sizes="100vw"
-                      className="w-[30px] h-auto object-cover"
+                      className="w-[20px] h-auto object-cover"
                     />
                     Khóa học
                   </div>
                   <span
                     className={
                       pathname.startsWith("/khoa-hoc")
-                        ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                        : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
+                        ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-blue-600 group-hover:w-3/6"
+                        : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-blue-600 group-hover:w-3/6"
                     }
                   ></span>
                   <span
                     className={
                       pathname.startsWith("/khoa-hoc")
-                        ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                        : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
+                        ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-blue-600 group-hover:w-3/6"
+                        : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-blue-600 group-hover:w-3/6"
                     }
                   ></span>
 
@@ -158,43 +154,48 @@ const Header = () => {
               </div>
             </li>
 
-            <li className="group relative cursor-pointer">
-              <span onClick={() => router.push("/tin-tuc")}>Tin tức</span>
-              <span
-                className={
-                  pathname.startsWith("/tin-tuc")
-                    ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
-              <span
-                className={
-                  pathname.startsWith("/tin-tuc")
-                    ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
+            <li
+              onClick={() => router.push("/tin-tuc")}
+              className={
+                pathname.startsWith("/tin-tuc")
+                  ? "cursor-pointer px-4 py-2 rounded shadow-xs relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white bg-blue-600 text-white"
+                  : "cursor-pointer px-4 py-2 rounded shadow-xs text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
+              }
+            >
+              <div className="flex items-center gap-1">
+                <Image
+                  src="/icon_3.svg"
+                  alt="hfh"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-[20px] h-auto object-cover"
+                />
+                Tin tức
+              </div>
             </li>
 
             <li
-              className="group relative cursor-pointer"
               onClick={() => router.push("/lien-he")}
+              className={
+                pathname.startsWith("/lien-he")
+                  ? "cursor-pointer px-4 py-2 rounded shadow-xs relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white bg-blue-600 text-white"
+                  : "cursor-pointer px-4 py-2 rounded shadow-xs text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
+              }
             >
-              <span>Liên hệ</span>
-              <span
-                className={
-                  pathname === "/lien-he"
-                    ? "absolute -bottom-2 left-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
-              <span
-                className={
-                  pathname === "/lien-he"
-                    ? "absolute -bottom-2 right-1/2 w-3/6 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                    : "absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-orange-600 group-hover:w-3/6"
-                }
-              ></span>
+             
+              <div className="flex items-center gap-1">
+                <Image
+                  src="/icon_4.svg"
+                  alt="hfh"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-[20px] h-auto object-cover"
+                />
+                Liên hệ
+              </div>
+              
             </li>
           </ul>
 
@@ -222,7 +223,7 @@ const Header = () => {
               <input
                 onKeyDown={handleKeyPress}
                 onChange={(e) => setSearchValue(e.target.value)}
-                className="rounded-full px-8 py-2 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 bg-white transition-all duration-300 shadow-md"
+                className="rounded-full px-10 py-2 border-2 border-blue-300 focus:outline-none focus:border-blue-500 placeholder-gray-400 bg-white transition-all duration-300 shadow-md"
                 placeholder="Search..."
                 type="text"
               />
