@@ -1,20 +1,10 @@
-import Blog from "./Blog";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const arr = ["1", "2", "2", "3", "4"];
 
 const ListBlog = () => {
-  const params = useSearchParams();
   const router = useRouter();
-  const [listBread, setListBread] = useState(["Tin tức"]);
-  const limit = 12;
-  const [list, setList] = useState([]);
-  const [total, setTotal] = useState(3);
 
   // const fetch_baiviet = async () => {
   //   let page = params.get("page") ? params.get("page") : 1;
@@ -34,37 +24,7 @@ const ListBlog = () => {
   //   fetch_baiviet();
   // }, [params.get("page")]);
 
-  const handlePaginate = (e, page) => {
-    router.push(`/tin-tuc/?page=${page}`);
-  };
-
   return (
-    // <div className="">
-    //   {/* <Breadcrum2 listBread={listBread} /> */}
-
-    //   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-2 mt-10">
-    //     {arr &&
-    //       arr.map((item, id) => {
-    //         return (
-    //           <>
-    //             <div className="col-span-1 ">
-    //               <Blog detail={item} />
-    //             </div>
-    //           </>
-    //         );
-    //       })}
-    //   </div>
-
-    //   <Box className="mt-10" sx={{ display: "flex", justifyContent: "center" }}>
-    //     <Stack spacing={2}>
-    //       <Pagination
-    //         onChange={(e, page) => handlePaginate(e, page)}
-    //         count={+total}
-    //         color="primary"
-    //       />
-    //     </Stack>
-    //   </Box>
-    // </div>
     <div className="w-full dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-8">
         <div className="mx-auto max-w-2xl text-center">
@@ -76,11 +36,13 @@ const ListBlog = () => {
           </p>
         </div>
         <div className="mx-auto mt-8 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
-          {/* First blog post */}
-          <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+          <article
+            onClick={() => router.push("tin-tuc/fdsf")}
+            className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+          >
             <img
               src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxhaXxlbnwwfDB8fHwxNzEyNzUzMTQ4fDA&ixlib=rb-4.0.3&q=80&w=1080"
-              alt
+              alt="ff"
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
@@ -99,25 +61,26 @@ const ListBlog = () => {
                 <div className="flex gap-x-2.5">
                   <img
                     src="https://randomuser.me/api/portraits/men/2.jpg"
-                    alt
+                    alt="ff"
                     className="h-6 w-6 flex-none rounded-full bg-white/10"
                   />
                   John
                 </div>
               </div>
             </div>
-            <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-              <a href="/tech-blog/post1">
-                <span className="absolute inset-0" />
-                The Future of Artificial Intelligence: Trends and Challenges
-              </a>
+            <h3 className="mt-3 text-lg font-semibold leading-6 text-white hover:text-blue-600 duration-150 cursor-pointer">
+              <span className="absolute inset-0" />
+              The Future of Artificial Intelligence: Trends and Challenges
             </h3>
           </article>
-          {/* Second blog post */}
-          <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+
+          <article
+            onClick={() => router.push("tin-tuc/fdsf")}
+            className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+          >
             <img
               src="https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxibG9jayUyMGNoYWlufGVufDB8MHx8fDE3MTI3NTMxNjd8MA&ixlib=rb-4.0.3&q=80&w=1080"
-              alt
+              alt="fff"
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
@@ -136,7 +99,7 @@ const ListBlog = () => {
                 <div className="flex gap-x-2.5">
                   <img
                     src="https://randomuser.me/api/portraits/women/2.jpg"
-                    alt
+                    alt="kkk"
                     className="h-6 w-6 flex-none rounded-full bg-white/10"
                   />
                   Jane
@@ -144,17 +107,18 @@ const ListBlog = () => {
               </div>
             </div>
             <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-              <a href="/tech-blog/post2">
-                <span className="absolute inset-0" />
-                The Rise of Blockchain Technology: A Comprehensive Guide
-              </a>
+              <span className="absolute inset-0" />
+              The Rise of Blockchain Technology: A Comprehensive Guide
             </h3>
           </article>
-          {/* Third blog post */}
-          <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+
+          <article
+            onClick={() => router.push("tin-tuc/fdsf")}
+            className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+          >
             <img
               src="https://images.unsplash.com/photo-1666112835156-c65bb806ac73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxNXx8cXVhbnR1bSUyMGNvbXB1dGluZ3xlbnwwfDB8fHwxNzEyNzUzMTk2fDA&ixlib=rb-4.0.3&q=80&w=1080"
-              alt
+              alt="fff"
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
@@ -173,7 +137,7 @@ const ListBlog = () => {
                 <div className="flex gap-x-2.5">
                   <img
                     src="https://randomuser.me/api/portraits/men/4.jpg"
-                    alt
+                    alt="lll"
                     className="h-6 w-6 flex-none rounded-full bg-white/10"
                   />
                   Michael
@@ -181,13 +145,10 @@ const ListBlog = () => {
               </div>
             </div>
             <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-              <a href="/tech-blog/post3">
-                <span className="absolute inset-0" />
-                How Quantum Computing Will Revolutionize Data Security
-              </a>
+              <span className="absolute inset-0" />
+              How Quantum Computing Will Revolutionize Data Security
             </h3>
           </article>
-          {/* More blog posts can be added similarly */}
         </div>
       </div>
     </div>

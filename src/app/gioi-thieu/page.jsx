@@ -6,31 +6,23 @@ import Gioithieu from "@/components/gioi-thieu/Gioithieu";
 import LoadingCss from "@/components/loading/LoadingCss";
 import { useEffect, useState } from "react";
 
+import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
+import Social from "@/components/social/Social";
+
 const Gioithieu_Home = () => {
   let [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetch_Gioithieu = async () => {
-  //     const res = await fetch(`${process.env.URL_BACKEND}/api/v1/about`);
-  //     const result = await res.json();
-
-  //     if (result && result.data) {
-  //       setDescription(result.data[0]?.description);
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   fetch_Gioithieu();
-  // }, []);
-
-  // if (isLoading) return <LoadingCss />;
-
   return (
     <div>
-      <Header />
+      <ScrollGlobal>
+        <Header />
 
-      <Gioithieu description={description} />
-      <Footer />
+        <Gioithieu description={description} />
+
+        <Footer />
+      </ScrollGlobal>
+      <Social />
     </div>
   );
 };

@@ -67,6 +67,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+/* custom scroll */
+
 html {
   scroll-behavior: smooth;
 }
@@ -84,7 +86,7 @@ html {
   background: blue; 
 }
 
-
+/* custom carousel */
 .slick-dots li button:before{
   font-size: 14px !important;
   color: white !important;

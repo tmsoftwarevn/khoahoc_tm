@@ -1,46 +1,55 @@
 import React, { useState } from "react";
-import "./test.scss"; 
+import "./test.scss"; // Make sure to include the CSS for styling
 
-const Card3D = () => {
-  const [style, setStyle] = useState({});
-  const THRESHOLD = 15;
+const Modal = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleHover = (e) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { clientWidth, clientHeight } = currentTarget;
-    const offsetLeft = currentTarget.getBoundingClientRect().left;
-    const offsetTop = currentTarget.getBoundingClientRect().top;
-
-    const horizontal = (clientX - offsetLeft) / clientWidth;
-    const vertical = (clientY - offsetTop) / clientHeight;
-    const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
-    const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
-
-    setStyle({
-      transform: `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`,
-    });
+  // Function to open the modal
+  const openModal = () => {
+    setIsOpen(true);
   };
 
-  const resetStyles = () => {
-    setStyle({
-      transform: `perspective(1000px) rotateX(0deg) rotateY(0deg)`,
-    });
+  // Function to close the modal
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
-    <div
-      className="card-3d"
-      style={style}
-      onMouseMove={handleHover}
-      onMouseLeave={resetStyles}
-    >
-      <img
-        className="card-image"
-        src="/124.jpg"
-        alt="Beach"
-      />
+    <div>
+      {/* Button to trigger modal */}
+      <button onClick={openModal} className="show-modal-btn">
+        Show Sale
+      </button>
+
+      {/* Modal */}
+      {isOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <img
+              src="https://via.placeholder.com/300" // Replace with your image URL
+              alt="Sale"
+              className="sale-image"
+            />
+            <h2 className="sale-title">Month 12 Sale</h2>
+            <p className="sale-description">
+              Get 50% OFF on all products this December!
+            </p>
+            <button
+              className="shop-now-btn"
+              onClick={() =>
+                (window.location.href = "https://your-sale-page-url.com")
+              }
+            >
+              Shop Now
+            </button>
+            <button className="close-btn" onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Card3D;
+export default Modal;

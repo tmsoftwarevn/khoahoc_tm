@@ -1,8 +1,7 @@
 "use client";
 
 import Navbar1 from "./Navbar1";
-import { Button, Input, Space } from "antd";
-import { FaSearch } from "react-icons/fa";
+
 import { useEffect, useState } from "react";
 import { VscThreeBars } from "react-icons/vsc";
 import ResponsiveHeader from "./Responsive";
@@ -12,14 +11,14 @@ import Image from "next/image";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [dropdown, setDropdown] = useState([{name:"khóa marketing", slug:"slug"}]);
+  const [dropdown, setDropdown] = useState([
+    { name: "khóa marketing", slug: "slug" },
+  ]);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
-  useEffect(() => {
-   
-  }, []);
+  useEffect(() => {}, []);
 
   const handleSearch = () => {
     console.log("vvvvv", searchValue);
@@ -102,7 +101,7 @@ const Header = () => {
                   type="button"
                   className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2 text-white  cursor-pointer text-center shadow-xs transition-all duration-500 "
                 >
-                  <span  onClick={() => router.push("/khoa-hoc")}>Khóa học</span>
+                  <span onClick={() => router.push("/khoa-hoc")}>Khóa học</span>
                   <span
                     className={
                       pathname.startsWith("/khoa-hoc")
@@ -145,9 +144,9 @@ const Header = () => {
                           <li key={item.slug}>
                             <span
                               onClick={() =>
-                                router.push(`/the-loai/${item.slug}`)
+                                router.push(`/khoa-hoc/${item.slug}`)
                               }
-                              className="block px-3 py-2 hover:bg-orange-600 duration-150 text-black hover:text-white "
+                              className="block px-3 py-2 hover:bg-blue-600 duration-150 text-black hover:text-white "
                             >
                               {item.name}
                             </span>
@@ -158,8 +157,6 @@ const Header = () => {
                 </div>
               </div>
             </li>
-
-            
 
             <li className="group relative cursor-pointer">
               <span onClick={() => router.push("/tin-tuc")}>Tin tức</span>
@@ -202,7 +199,7 @@ const Header = () => {
           </ul>
 
           <div className="hidden lg:block">
-            <Space
+            {/* <Space
               direction="vertical"
               className="w-full sm:w-[300px] max-w-full"
             >
@@ -224,7 +221,56 @@ const Header = () => {
                   <FaSearch className="text-white" />
                 </Button>
               </Space.Compact>
-            </Space>
+            </Space> */}
+
+            <div className="relative">
+              <button className="absolute left-2 -translate-y-1/2 top-1/2 p-1">
+                <svg
+                  width={17}
+                  height={16}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-labelledby="search"
+                  className="w-5 h-5 text-gray-700"
+                >
+                  <path
+                    d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
+                    stroke="currentColor"
+                    strokeWidth="1.333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              {/* <input
+                onKeyDown={handleKeyPress}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className="rounded-full px-8 py-2 border-2 border-transparent focus:outline-none placeholder:text-gray-700 bg-white transition-all duration-300 shadow-md"
+                placeholder="Search..."
+                
+                type="text"
+              /> */}
+               <input class="placeholder:italic !placeholder:text-gray-700 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." />
+              <button
+                type="reset"
+                className="absolute right-3 -translate-y-1/2 top-1/2 p-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-gray-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <div onClick={() => setOpen(!open)} className="lg:hidden">
