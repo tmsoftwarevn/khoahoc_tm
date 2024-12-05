@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import { useRouter } from "next/navigation";
-import Appearance from "@/ui/appearance/Appearance";
+import "./khoahoc.scss";
 
 
 const pricingList = [
@@ -194,12 +194,16 @@ const Pricing12 = () => {
   }, [endTime]);
 
   return (
-    <section className="ezy__pricing12 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white relative overflow-hidden z-[1]">
+    <section className=" py-14 md:py-24 text-zinc-900 dark:text-white relative overflow-hidden z-[1]">
       <div
-        className="absolute top-0 left-0 right-0 bottom-0 bg-center bg-repeat -z-[1] opacity-10 dark:opacity-40"
+        className="absolute top-0 left-0 right-0 bottom-0 bg-center bg-no-repeat -z-[1] opacity-10 "
+        // style={{
+        //   backgroundImage:
+        //     "url(https://cdn.easyfrontend.com/pictures/pricing/pricing_12.png)",
+        // }}
         style={{
           backgroundImage:
-            "url(https://cdn.easyfrontend.com/pictures/pricing/pricing_12.png)",
+            "url(/bg-kh.jpg)",
         }}
       />
       <div className="container px-4 mx-auto">

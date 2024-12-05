@@ -4,7 +4,7 @@ import Header from "@/components/layout user/header/Header";
 import Footer from "@/components/layout user/footer/Footer";
 import Hero from "@/components/home/Hero";
 import Feature from "@/components/home/Feature";
-import Course from "@/components/home/Course";
+import Course from "@/components/khoa-hoc/Khoahoc";
 import LoadingPre from "@/ui/loading/Loading";
 import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import { useState } from "react";

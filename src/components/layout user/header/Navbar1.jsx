@@ -2,7 +2,6 @@
 import { MdCall, MdKey } from "react-icons/md";
 import { IoIosLogIn, IoMdMail } from "react-icons/io";
 
-import { Badge, Button, Input, Space } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
@@ -42,31 +41,7 @@ const Navbar1 = () => {
         </div>
       </div> */}
 
-      <div className="hidden">
-        <Space
-          direction="vertical"
-          className=" w-[250px] sm:w-[300px] md:w-[400px] max-w-full"
-        >
-          <Space.Compact
-            style={{
-              width: "100%",
-            }}
-          >
-            <Input
-              onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Tìm kiếm "
-              onKeyDown={handleKeyPress}
-              className="!outline-none !border-none !shadow-none"
-            />
-            <Button
-              onClick={() => handleSearch()}
-              className="!bg-orange-500 !outline-none !hover:border-none !border-none !hover:outline-none !hover:bg-orange-100 !hover:text-white "
-            >
-              <FaSearch className="text-white" />
-            </Button>
-          </Space.Compact>
-        </Space>
-      </div>
+     
       <div className="flex justify-end py-2 pr-2 items-center gap-5 w-full">
         {isAuthenticated ? (
           <>
@@ -182,21 +157,15 @@ const Navbar1 = () => {
               <span className="font-medium">Đăng nhập</span>
             </div>
 
-            <div
+            {/* <div
               className="flex items-center px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-600 rounded-md shadow-md gap-2 cursor-pointer hover:from-purple-500 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300"
               onClick={() => router.push("/login")}
             >
               <MdKey className="text-xl" />
               <span className="font-medium">Đăng ký</span>
-            </div>
-
-            {/* <div
-              className="flex items-center  gap-1 cursor-pointer hover:text-blue-500 duration-150 hover:underline"
-              onClick={() => router.push("/register")}
-            >
-              <MdKey />
-              Đăng ký
             </div> */}
+
+           
           </>
         )}
       </div>

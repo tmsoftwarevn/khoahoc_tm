@@ -3,10 +3,10 @@
 import Navbar1 from "./Navbar1";
 import { useEffect, useState } from "react";
 import { VscThreeBars } from "react-icons/vsc";
-import ResponsiveHeader from "./Responsive";
+
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import ToolTip2 from "@/ui/custom/ToolTipButton";
+import Responsive from "@/components/layout user/header/Responsive";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -231,11 +231,16 @@ const Header = () => {
           </div>
 
           <div onClick={() => setOpen(!open)} className="lg:hidden">
-            <VscThreeBars className="text-4xl" />
+            <VscThreeBars className="text-4xl text-blue-600" />
           </div>
         </div>
 
-        <ResponsiveHeader dropdown={dropdown} open={open} setOpen={setOpen} />
+        {/* <ResponsiveHeader dropdown={dropdown} open={open} setOpen={setOpen} /> */}
+        {
+          open ? <Responsive /> : <></>
+        }
+        
+
       </div>
     </div>
   );

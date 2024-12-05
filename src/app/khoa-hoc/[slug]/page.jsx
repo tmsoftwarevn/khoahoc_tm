@@ -7,13 +7,14 @@ import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import Social from "@/components/social/Social";
 import ModalVideo from "react-modal-video";
 import { useState } from "react";
+import Test from "@/ui/test/Test";
 
 const Khoahoc = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <div>
-      <ScrollGlobal>
+      
         <Header />
 
         <div className="container">
@@ -21,7 +22,7 @@ const Khoahoc = () => {
         </div>
 
         <Footer />
-      </ScrollGlobal>
+      
       <Social />
 
       <ModalVideo

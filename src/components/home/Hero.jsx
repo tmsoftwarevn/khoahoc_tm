@@ -140,7 +140,7 @@ const Hero = (props) => {
                           <div className="h-4 border-l border-gray-700" />
 
                           {/* <ToolTipButton /> */}
-                          <ButtonHover />
+                          <ButtonHover name = "Khám phá" />
 
                         </div>
                       </div>
