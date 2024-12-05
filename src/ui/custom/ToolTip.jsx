@@ -6,7 +6,7 @@ const Tooltip = (props) => {
   const { name } = props;
 
   return (
-    <div className="item-hints ">
+    <div className="item-hints hidden lg:flex">
       <div className="hint" data-position={4}>
         <span className="hint-radius" />
         <span className="hint-dot">

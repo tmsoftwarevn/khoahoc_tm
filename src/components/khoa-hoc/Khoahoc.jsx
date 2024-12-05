@@ -6,10 +6,9 @@ import PropTypes from "prop-types";
 import { useRouter } from "next/navigation";
 import "./khoahoc.scss";
 
-
 const pricingList = [
   {
-    bannerImg: "https://cdn.easyfrontend.com/pictures/courses/courses3.jpg",
+    bannerImg: "/123.jpg",
     discount: "10%",
     category: "Marketing",
     title: "Not Your Regular Home Decoration? Start Today with us",
@@ -19,7 +18,7 @@ const pricingList = [
     name: "Alex Hales",
   },
   {
-    bannerImg: "https://cdn.easyfrontend.com/pictures/courses/courses11.jpg",
+    bannerImg: "/124.jpg",
     discount: "18%",
     category: "Branding",
     title: "The Complete Digital Marketing Guide Course",
@@ -29,7 +28,7 @@ const pricingList = [
     name: "Steve Roger",
   },
   {
-    bannerImg: "https://cdn.easyfrontend.com/pictures/courses/courses5.jpg",
+    bannerImg: "/125.jpg",
     discount: "20%",
     category: "Analytics",
     title:
@@ -66,16 +65,16 @@ const PricingItem = ({ item }) => {
 
   return (
     <div className="bg-gray-50 shadow-xl dark:bg-slate-800 h-full">
-
       <div className="relative">
         <div className="flex justify-center items-center text-xl w-16 h-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-white bg-opacity-50 rounded-full cursor-pointer before:absolute before:top-1/2 before:left-1/2">
           <FontAwesomeIcon icon={faPlay} className="ml-1" />
         </div>
         <img src={bannerImg} className="w-full rounded-t" alt={title} />
-        <div className="flex justify-center items-center absolute -bottom-6 right-3 bg-white dark:bg-slate-800 p-4 rounded-full">
-          <p className="text-center leading-none text-lg text-blue-600">
+        
+        <div className="flex justify-center items-center absolute -bottom-6 right-3 bg-gradient-to-r from-red-400 to-red-500 p-3 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
+          <p className="text-center text-sm font-semibold text-white">
             {discount} <br />
-            <span className="text-black dark:text-white">off</span>
+            <span className="text-gray-100 text-xs">off</span>
           </p>
         </div>
       </div>
@@ -88,7 +87,7 @@ const PricingItem = ({ item }) => {
         </a>
         <p className="text-[15px] opacity-80 py-3">{text}</p>
         <div className="flex justify-between mb-2">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <div className="mr-2">
               <img
                 src={authorImg}
@@ -100,7 +99,7 @@ const PricingItem = ({ item }) => {
             <div>
               <h4 className="font-medium mb-0">{name}</h4>
             </div>
-          </div>
+          </div> */}
           <button
             onClick={() => route.push("/khoa-hoc/ưer")}
             className="border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white duration-300 d-flex align-items-center"
@@ -202,8 +201,7 @@ const Pricing12 = () => {
         //     "url(https://cdn.easyfrontend.com/pictures/pricing/pricing_12.png)",
         // }}
         style={{
-          backgroundImage:
-            "url(/bg-kh.jpg)",
+          backgroundImage: "url(/bg-kh.jpg)",
         }}
       />
       <div className="container px-4 mx-auto">
@@ -227,7 +225,6 @@ const Pricing12 = () => {
         </div>
 
         {/* className="col-span-1 text-sm flex uppercase cursor-pointer px-5 py-2 bg-white relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-orange-500 before:-z-10  before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 hover:text-white text-orange-500" */}
-
 
         <div className="grid grid-cols-6 gap-6 mt-12 max-w-7xl mx-auto">
           {pricingList.map((item, i) => (
