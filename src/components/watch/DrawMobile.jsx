@@ -51,7 +51,7 @@ export default function MobileDrawer(props) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <div className="box shadow-md p-2">
+      <div className="box shadow-md p-2 mt-10">
         <div
           className="flex items-center cursor-pointer hover:text-blue-600"
           onClick={() => router.push("/")}
@@ -59,7 +59,7 @@ export default function MobileDrawer(props) {
           <IoIosArrowBack className="text-xs" />
           <p className="py-2">Về trang chủ</p>
         </div>
-        <p className="text-3xl py-2">Content Marketing | Digital Marketing</p>
+        <div className="text-3xl">Content Marketing | Digital Marketing</div>
       </div>
 
       <ContentCourse

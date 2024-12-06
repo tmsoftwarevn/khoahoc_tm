@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { MdCancelPresentation } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
-
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 import "./watch.scss";
 
@@ -36,11 +35,11 @@ const WatchVideo = () => {
               onClick={() => router.push("/")}
             >
               <IoIosArrowBack className="text-xs" />
-              <p className="py-2">Về trang chủ</p>
+              <div className="py-2">Về trang chủ</div>
             </div>
-            <p className="text-3xl py-2">
+            <div className="text-3xl py-2">
               Content Marketing | Digital Marketing
-            </p>
+            </div>
           </div>
 
           <ContentCourse
@@ -52,7 +51,7 @@ const WatchVideo = () => {
 
         <div
           style={{ zIndex: "999999" }}
-          className="p-3 mobile-title xl:hidden flex items-center bg-blue-600 text-white font-bold text-xl"
+          className="p-3 mobile-title xl:hidden col-span-4 flex items-center bg-blue-600 text-white font-bold text-xl"
         >
           {openDraw ? (
             <MdCancelPresentation
@@ -69,16 +68,19 @@ const WatchVideo = () => {
           <div className="text-center w-full"> KHÓA HỌC TM</div>
         </div>
 
-        <div className="right-video col-span-1 md:col-span-3  mt-2">
-          <div className="name-baihoc">{title}</div>
+        <div className="right-video col-span-4 xl:col-span-3  mt-2">
+          {/* <div className="name-baihoc">{title}</div> */}
 
-          {/* <ReactPlayer
-            className="video-rp"
-            playing={true}
-            controls={true}
-            url={link}
-          /> */}
-        
+          <div className="player-wrapper">
+            <ReactPlayer
+              className="react-player"
+              playing={true}
+              controls={true}
+              url={link}
+              width="100%"
+              height="100%"
+            />
+          </div>
         </div>
       </div>
 

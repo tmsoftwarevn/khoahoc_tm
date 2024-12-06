@@ -15,7 +15,8 @@ import Test from "@/ui/test/Test";
 
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
-
+  const customVideoUrl =
+  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   return (
     <>
       <LoadingPre />
@@ -42,15 +43,33 @@ export default function Home() {
       </ScrollGlobal>
 
       <Social />
-      
-      <ModalVideo
+
+      {/* <ModalVideo
         channel="youtube"
         autoplay={true}
         start={true}
         isOpen={isOpen}
         videoId="GUGkvPT5TZA"
         onClose={() => setOpen(false)}
-      />
+        className="modal-video-movie-wrap"
+      /> */}
+      <ModalVideo
+        channel="custom"
+        isOpen={isOpen}
+        onClose={() => setOpen(false)}
+        url={customVideoUrl}
+
+      >
+        {/* <div className="modal-video-movie-wrap">
+          <video
+            src={customVideoUrl}
+            controls = {true}
+            width="100%"
+            height="100%"
+            autoPlay
+          />
+        </div> */}
+      </ModalVideo>
     </>
   );
 }
