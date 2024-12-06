@@ -5,12 +5,15 @@ import Header from "@/components/layout user/header/Header";
 import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import Social from "@/components/social/Social";
 
+import Test from "@/ui/test/Test";
 const page = () => {
     return (
         <div>
             <ScrollGlobal>
 
                 <Header />
+
+                {/* <Test /> */}
 
                 <Contact />
 

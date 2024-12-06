@@ -2,7 +2,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import { makeStyles } from "@mui/styles";
+//import { makeStyles } from "@mui/styles";
 import ContentCourse from "./ContentCourse";
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -75,7 +75,7 @@ export default function MobileDrawer(props) {
   //     paddingTop: "65px",
   //   },
   // });
-  // const classes = useStyles();
+  //const classes = useStyles();
   return (
     <div>
       {["left"].map((anchor) => (

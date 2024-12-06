@@ -5,11 +5,11 @@ import ContentCourse from "./ContentCourse";
 import { IoIosArrowBack } from "react-icons/io";
 
 import { IoReorderThreeSharp } from "react-icons/io5";
-//import DrawMobile from "./DrawMobile";
+import DrawMobile from "./DrawMobile";
 import { useEffect, useState } from "react";
 import { MdCancelPresentation } from "react-icons/md";
 import { useRouter } from "next/navigation";
-import Video from "next-video";
+
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 import "./watch.scss";
@@ -72,26 +72,22 @@ const WatchVideo = () => {
         <div className="right-video col-span-1 md:col-span-3  mt-2">
           <div className="name-baihoc">{title}</div>
 
-          <ReactPlayer
-              className="video-rp"
-              playing={true}
-              controls={true}
-              url={link}
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
-            />
-          
+          {/* <ReactPlayer
+            className="video-rp"
+            playing={true}
+            controls={true}
+            url={link}
+          /> */}
+        
         </div>
       </div>
 
-      {/* <DrawMobile
-          openDraw={openDraw}
-          setOpenDraw={setOpenDraw}
-          setLink={setLink}
-          setTitle={setTitle}
-        /> */}
+      <DrawMobile
+        openDraw={openDraw}
+        setOpenDraw={setOpenDraw}
+        setLink={setLink}
+        setTitle={setTitle}
+      />
     </div>
   );
 };

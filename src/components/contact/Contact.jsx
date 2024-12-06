@@ -55,7 +55,7 @@ const ContactSection = () => {
             <img
               src="/contact.jpg"
               alt="ContactUs Section"
-              className="w-full h-full lg:rounded-l-2xl rounded-2xl object-cover overflow-hidden"
+              className="w-full h-full rounded object-cover overflow-hidden"
             />
             <div className="absolute inset-0 bg-indigo-700 opacity-30 group-hover:opacity-40 transition-all"></div>
             <div className="absolute bottom-0 p-6 lg:p-11">

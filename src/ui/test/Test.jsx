@@ -1,135 +1,37 @@
-import React, { useState } from "react";
-import "./test.scss"; // Make sure to include the CSS for styling
+import { usePathname } from 'next/navigation';
+import { FaNewspaper, FaPhoneAlt } from 'react-icons/fa'; // Import icons
 
-const Modal = (props) => {
-  const { dropdown } = props;
+const Navigation = () => {
+  const pathname = usePathname();
   return (
-    <ul className="space-y-1 list-none">
-      <li>
-        <a
-          href="#"
-          className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-        >
-          General
-        </a>
+    <ul className="flex space-x-6">
+      <li
+        onClick={() => router.push("/tin-tuc")}
+        className={
+          pathname.startsWith("/tin-tuc")
+            ? "cursor-pointer px-6 py-3 rounded-full shadow-lg bg-blue-600 text-white relative overflow-hidden flex items-center gap-2 transition-all ease-in-out duration-300 transform hover:scale-105"
+            : "cursor-pointer px-6 py-3 rounded-full shadow-lg text-gray-700 relative overflow-hidden flex items-center gap-2 transition-all ease-in-out duration-300 transform hover:scale-105 hover:text-blue-600"
+        }
+      >
+        <FaNewspaper className="text-lg" />
+        <span className="font-semibold">Tin tức</span>
+        <span className="absolute inset-0 bg-blue-500 transform -translate-x-full transition-all duration-500 hover:translate-x-0 z-[-1]"></span>
       </li>
 
-      <li>
-        <details className="group [&_summary::-webkit-details-marker]:hidden">
-          <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-            <span className="text-sm font-medium"> Teams </span>
-
-            <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
-          </summary>
-
-          <ul className="mt-2 space-y-1 px-4 list-none">
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-              >
-                Banned Users
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-              >
-                Calendar
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
-
-      <li>
-        <a
-          href="#"
-          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          Billing
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="#"
-          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          Invoices
-        </a>
-      </li>
-
-      <li>
-        <details className="group [&_summary::-webkit-details-marker]:hidden">
-          <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-            <span className="text-sm font-medium"> Account </span>
-
-            <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
-          </summary>
-
-          <ul className="mt-2 space-y-1 px-4">
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-              >
-                Details
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-              >
-                Security
-              </a>
-            </li>
-
-            <li>
-              <form action="#">
-                <button
-                  type="submit"
-                  className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
-                >
-                  Logout
-                </button>
-              </form>
-            </li>
-          </ul>
-        </details>
+      <li
+        onClick={() => router.push("/lien-he")}
+        className={
+          pathname.startsWith("/lien-he")
+            ? "cursor-pointer px-6 py-3 rounded-full shadow-lg bg-blue-600 text-white relative overflow-hidden flex items-center gap-2 transition-all ease-in-out duration-300 transform hover:scale-105"
+            : "cursor-pointer px-6 py-3 rounded-full shadow-lg text-gray-700 relative overflow-hidden flex items-center gap-2 transition-all ease-in-out duration-300 transform hover:scale-105 hover:text-blue-600"
+        }
+      >
+        <FaPhoneAlt className="text-lg" />
+        <span className="font-semibold">Liên hệ</span>
+        <span className="absolute inset-0 bg-blue-500 transform -translate-x-full transition-all duration-500 hover:translate-x-0 z-[-1]"></span>
       </li>
     </ul>
   );
 };
 
-export default Modal;
+export default Navigation;

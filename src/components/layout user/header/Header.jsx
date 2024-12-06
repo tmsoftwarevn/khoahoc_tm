@@ -77,7 +77,7 @@ const Header = () => {
             <li className="group relative cursor-pointer uppercase">
               <div className="dropdown relative inline-flex group">
                 <div
-                onClick={() => router.push("/khoa-hoc")}
+                  onClick={() => router.push("/khoa-hoc")}
                   id="dropdown-hover"
                   type="button"
                   //className="relative dropdown-toggle uppercase inline-flex justify-center items-center gap-2   cursor-pointer text-center shadow-md transition-all duration-500 cursor-pointer px-4 py-2 rounded shadow-md text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
@@ -183,7 +183,6 @@ const Header = () => {
                   : "cursor-pointer px-4 py-2 rounded shadow-xs text-gray-700 relative isolation-auto z-10 border-b border-gray before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-blue-500 before:-z-10  before:aspect-square before:hover:scale-175 overflow-hidden before:hover:duration-700 hover:text-white "
               }
             >
-             
               <div className="flex items-center gap-1">
                 <Image
                   src="/icon_4.svg"
@@ -195,7 +194,6 @@ const Header = () => {
                 />
                 Liên hệ
               </div>
-              
             </li>
           </ul>
 
@@ -236,11 +234,7 @@ const Header = () => {
         </div>
 
         {/* <ResponsiveHeader dropdown={dropdown} open={open} setOpen={setOpen} /> */}
-        {
-          open ? <Responsive /> : <></>
-        }
-        
-
+        {open ? <Responsive /> : <></>}
       </div>
     </div>
   );
