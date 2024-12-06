@@ -66,16 +66,8 @@ const DetailKhoahoc = (props) => {
         onClose={() => setOpen(false)}
         url={customVideoUrl}
       >
-        <div className="custom-video-container">
-          <video
-            src={customVideoUrl}
-            controls
-            width="100%"
-            height="100%"
-            autoPlay
-          />
-        </div>
       </ModalVideo> */}
+
     </div>
   );
 };

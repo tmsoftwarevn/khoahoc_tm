@@ -1,6 +1,4 @@
-
 import './globals.css';
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-modal-video/scss/modal-video.scss";
@@ -44,13 +42,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-
       <body >
-
-
         {children}  
-        
-
       </body>
     </html>
   )

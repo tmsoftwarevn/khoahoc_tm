@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -29,7 +30,7 @@ const ScrollToTop = () => {
     <>
       {isVisible && (
         <div onClick={scrollToTop} style={styles.scrollToTop}>
-          <FaArrowAltCircleUp className="text-2xl text-orange-500" />
+          <FaArrowAltCircleUp className="text-2xl text-blue-500" />
         </div>
       )}
     </>

@@ -6,6 +6,7 @@ import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import Social from "@/components/social/Social";
 
 import Test from "@/ui/test/Test";
+
 const page = () => {
     return (
         <div>
@@ -13,10 +14,10 @@ const page = () => {
 
                 <Header />
 
-                {/* <Test /> */}
 
                 <Contact />
-
+<Test />
+                
                 <Footer />
             </ScrollGlobal>
             <Social />

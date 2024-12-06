@@ -1,0 +1,22 @@
+/* Custom Modal Video Styles */
+.react-modal-video .modal-video-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken background */
+    border-radius: 16px; /* Rounded corners for modal */
+  }
+  
+  .react-modal-video .modal-video-body {
+    border-radius: 16px; /* Rounded edges for video content */
+    padding: 20px;
+  }
+  
+  .react-modal-video .modal-video-close {
+    top: 10px;
+    right: 10px;
+    background-color: #ff4c4c;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    padding: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  

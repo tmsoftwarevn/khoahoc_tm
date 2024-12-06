@@ -7,11 +7,12 @@ import ScrollGlobal from "@/ui/scroll/ScrollGlobal";
 import Social from "@/components/social/Social";
 import ModalVideo from "react-modal-video";
 import { useState } from "react";
-import Test from "@/ui/test/Test";
+import CustomVideo from "@/ui/modal video/CustomVideo";
 
 const Khoahoc = () => {
   const [isOpen, setOpen] = useState(false);
-
+  const customVideoUrl =
+  "https://www.youtube.com/watch?v=Bkzdj924XAg";
   return (
     <div>
       
@@ -25,13 +26,10 @@ const Khoahoc = () => {
       
       <Social />
 
-      <ModalVideo
-        channel="youtube"
-        autoplay={true}
-        start={true}
+      <CustomVideo
         isOpen={isOpen}
-        videoId="GUGkvPT5TZA"
-        onClose={() => setOpen(false)}
+        setOpen={setOpen}
+        customVideoUrl={customVideoUrl}
       />
 
     </div>
