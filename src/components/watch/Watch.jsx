@@ -69,8 +69,6 @@ const WatchVideo = () => {
         </div>
 
         <div className="right-video col-span-4 xl:col-span-3  mt-2">
-          {/* <div className="name-baihoc">{title}</div> */}
-
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"
@@ -81,6 +79,7 @@ const WatchVideo = () => {
               height="100%"
             />
           </div>
+          <div className="text-xl font-semibold mt-1">{title}</div>
         </div>
       </div>
 

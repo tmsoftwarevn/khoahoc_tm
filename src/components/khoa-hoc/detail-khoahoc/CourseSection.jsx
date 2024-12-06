@@ -6,7 +6,7 @@ import { IoIosPlayCircle } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 
-const CourseSection = ({ sectionDetails , setOpen}) => {
+const CourseSection = ({ sectionDetails , setOpen, idx}) => {
   const { title, items } = sectionDetails;
   const router  = useRouter();
   const [open, toggleOpen] = useState(false);
@@ -22,7 +22,7 @@ const CourseSection = ({ sectionDetails , setOpen}) => {
         onClick={handleClick}
       >
         <div className="flex justify-between w-full ">
-          <div className="">{title}</div>
+          <div className="">{idx + 1}. {title}</div>
           <div className="hidden sm:block">2 Bài học</div>
         </div>
       </AccordionSummary>

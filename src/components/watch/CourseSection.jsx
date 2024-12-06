@@ -4,8 +4,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { IoIosPlayCircle } from "react-icons/io";
 
-const CourseSection = ({ sectionDetails, setLink, setOpenDraw, setTitle }) => {
+const CourseSection = ({
+  sectionDetails,
+  setLink,
+  setOpenDraw,
+  setTitle,
+  idx,
+}) => {
   const { title, items } = sectionDetails;
+  const [idActive, setActive] = useState("");
 
   const [open, toggleOpen] = useState(false);
   const handleClick = () => {
@@ -17,7 +24,10 @@ const CourseSection = ({ sectionDetails, setLink, setOpenDraw, setTitle }) => {
     setLink(item.video_url);
     setOpenDraw(false); ///  tắt draw mobile
     setTitle(item.title);
+    console.log("checllll", item);
+    setActive(item.id);
   };
+  console.log("idddđ", idActive);
 
   return (
     <Accordion expanded={open} className="w-full rounded-none drop-shadow-none">
@@ -27,8 +37,9 @@ const CourseSection = ({ sectionDetails, setLink, setOpenDraw, setTitle }) => {
         onClick={handleClick}
       >
         <div className="flex justify-between w-full ">
-          <div className="">{title}</div>
-          {/* <div className="hidden sm:block">2 Bài học</div> */}
+          <div className="">
+            {idx + 1}. {title}
+          </div>
         </div>
       </AccordionSummary>
 
