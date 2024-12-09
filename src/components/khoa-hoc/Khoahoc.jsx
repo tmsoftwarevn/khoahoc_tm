@@ -106,6 +106,7 @@ const PricingItem = ({ item }) => {
           >
             Chi tiết
           </button>
+          
         </div>
       </div>
     </div>
