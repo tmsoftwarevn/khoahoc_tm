@@ -63,7 +63,8 @@ const Header = () => {
             >
               <div className="flex items-center gap-1">
                 <Image
-                  src="/icon_1.svg"
+                  //src="/icon_1.svg"
+                  src="/gioithieu.png"
                   alt="hfh"
                   width="0"
                   height="0"
@@ -89,7 +90,8 @@ const Header = () => {
                 >
                   <div className="flex items-center gap-1">
                     <Image
-                      src="/icon_2.svg"
+                      //src="/icon_2.svg"
+                      src='/course.png'
                       alt="hfh"
                       width="0"
                       height="0"
@@ -164,7 +166,8 @@ const Header = () => {
             >
               <div className="flex items-center gap-1">
                 <Image
-                  src="/icon_3.svg"
+                  //src="/icon_3.svg"
+                  src='/blog.png'
                   alt="hfh"
                   width="0"
                   height="0"
@@ -185,7 +188,8 @@ const Header = () => {
             >
               <div className="flex items-center gap-1">
                 <Image
-                  src="/icon_4.svg"
+                  //src="/icon_4.svg"
+                  src='/contact.png'
                   alt="hfh"
                   width="0"
                   height="0"
