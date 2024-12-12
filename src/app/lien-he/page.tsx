@@ -17,9 +17,8 @@ const page = () => {
 
                 <Header />
 
-
-                <Contact />
                 <Test />
+                <Contact />
 
                 <Footer />
             </ScrollGlobal>

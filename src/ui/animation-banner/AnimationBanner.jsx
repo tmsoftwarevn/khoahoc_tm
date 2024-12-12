@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "./test.scss";
+import "./ani.scss";
 
-const Test = () => {
+const AnimationBanner = () => {
   const tileRevealRef = useRef(null);
   const bannerRef = useRef(null);
 
@@ -32,7 +32,7 @@ const Test = () => {
 
       // Trigger GSAP animation
       gsap.to(".tile-reveal-square", {
-        duration: 0.6,
+        duration: 1,
         opacity: 0,
         scale: 0.75,
         ease: "power1.inOut",
@@ -59,4 +59,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default AnimationBanner;

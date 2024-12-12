@@ -9,21 +9,24 @@ import ModalVideo from "react-modal-video";
 import { useState } from "react";
 import CustomVideo from "@/ui/modal video/CustomVideo";
 
+import AnimationBanner from "@/ui/animation-banner/AnimationBanner";
+
 const Khoahoc = () => {
   const [isOpen, setOpen] = useState(false);
-  const customVideoUrl =
-  "https://www.youtube.com/watch?v=Bkzdj924XAg";
+  const customVideoUrl = "https://www.youtube.com/watch?v=Bkzdj924XAg";
+
   return (
     <div>
-      
-        <Header />
+      {/* <AnimationBanner /> */}
 
-        <div className="container">
-          <DetailKhoahoc isOpen={isOpen} setOpen={setOpen} />
-        </div>
+      <Header />
 
-        <Footer />
-      
+      <div className="container">
+        <DetailKhoahoc isOpen={isOpen} setOpen={setOpen} />
+      </div>
+
+      <Footer />
+
       <Social />
 
       <CustomVideo
@@ -31,7 +34,6 @@ const Khoahoc = () => {
         setOpen={setOpen}
         customVideoUrl={customVideoUrl}
       />
-
     </div>
   );
 };

@@ -13,6 +13,8 @@ import Appearance from "@/ui/appearance/Appearance";
 import Social from "@/components/social/Social";
 import CustomVideo from "@/ui/modal video/CustomVideo";
 
+import Test from "@/ui/test/Test";
+
 export default function Home() {
   const [isOpen, setOpen] = useState(false);
   // const customVideoUrl =

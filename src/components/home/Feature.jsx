@@ -3,7 +3,7 @@ import React from "react";
 import Appearance from "@/ui/appearance/Appearance";
 import ListFeature from "@/ui/list-feature/ListFeature";
 import "./feature.scss";
-// import Card3d from "@/ui/card-3d/Card3d";
+
 
 const Feature15 = () => {
   return (
