@@ -20,10 +20,8 @@ const Feature15 = () => {
       />
       {/* <div className="text-center font-semibold uppercase text-xl lg:text-4xl text-white">Quyền lợi khi đăng ký</div> */}
       <div className="text-center font-semibold uppercase text-xl lg:text-4xl bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
-  Quyền lợi khi đăng ký
-</div>
-
-
+        Quyền lợi khi đăng ký
+      </div>
 
       <Appearance
         initialProps={{ opacity: 0, y: 60, scale: 0.9 }}

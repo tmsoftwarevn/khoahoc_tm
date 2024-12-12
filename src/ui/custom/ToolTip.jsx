@@ -12,6 +12,7 @@ const Tooltip = (props) => {
         <span className="hint-dot">
           <Image
             src="/feature.gif"
+            //src="check-mark.gif"
             alt="sd"
             loading="lazy"
             width="0"
