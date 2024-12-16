@@ -7,6 +7,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Responsive from "@/components/layout user/header/Responsive";
+import { call_list_course } from "@/api/CallApi";
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -18,7 +19,13 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const call_data = async () => {
+      let data = await call_list_course();
+      setDropdown(data);
+    };
+    call_data();
+  }, []);
 
   const handleSearch = () => {
     console.log("vvvvv", searchValue);
@@ -30,6 +37,7 @@ const Header = () => {
       handleSearch();
     }
   };
+
   return (
     //sticky top-0 left-0 w-full z-50 shadow
     //bg-gradient-to-tr from-blue-400 to-green-200
@@ -91,7 +99,7 @@ const Header = () => {
                   <div className="flex items-center gap-1">
                     <Image
                       //src="/icon_2.svg"
-                      src='/course.png'
+                      src="/course.png"
                       alt="hfh"
                       width="0"
                       height="0"
@@ -137,16 +145,16 @@ const Header = () => {
                 >
                   <ul className="text-sm list-none !ml-0">
                     {dropdown &&
-                      dropdown.map((item) => {
+                      dropdown.map((item, idx) => {
                         return (
-                          <li key={item.slug}>
+                          <li key={`courrse-${idx}`}>
                             <span
                               onClick={() =>
-                                router.push(`/khoa-hoc/${item.slug}`)
+                                router.push(`/khoa-hoc/${item.course_slug}`)
                               }
                               className="block px-3 py-2 hover:bg-blue-600 duration-150 text-black hover:text-white "
                             >
-                              {item.name}
+                              {item.course_title}
                             </span>
                           </li>
                         );
@@ -167,7 +175,7 @@ const Header = () => {
               <div className="flex items-center gap-1">
                 <Image
                   //src="/icon_3.svg"
-                  src='/blog.png'
+                  src="/blog.png"
                   alt="hfh"
                   width="0"
                   height="0"
@@ -189,7 +197,7 @@ const Header = () => {
               <div className="flex items-center gap-1">
                 <Image
                   //src="/icon_4.svg"
-                  src='/contact.png'
+                  src="/contact.png"
                   alt="hfh"
                   width="0"
                   height="0"
@@ -237,7 +245,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* <ResponsiveHeader dropdown={dropdown} open={open} setOpen={setOpen} /> */}
         {open ? <Responsive /> : <></>}
       </div>
     </div>
