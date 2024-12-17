@@ -8,10 +8,11 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import DrawMobile from "./DrawMobile";
 import { useEffect, useState } from "react";
 import { MdCancelPresentation } from "react-icons/md";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 import "./watch.scss";
+import { call_detail_course } from "@/api/CallApi";
 
 const WatchVideo = () => {
   const router = useRouter();
@@ -21,6 +22,34 @@ const WatchVideo = () => {
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   );
   const [title, setTitle] = useState();
+  const searchParams = useSearchParams();
+  const slug = searchParams.get("s");
+
+  //console.log('ssssss', slug);
+  const [course, setCourse] = useState();
+  const [sections, setSections] = useState([]);
+
+  useEffect(() => {
+    const call_data = async () => {
+      let data = await call_detail_course(slug);
+      if (data) {
+        custom_arr_section(data?.curriculum?.sections);
+        setCourse(data?.course);
+      }
+    };
+    call_data();
+  }, []);
+
+  // lấy các bài giảng
+  const custom_arr_section = (sections) => {
+    const sectionsArray = Object.entries(sections).map(([key, lectures]) => ({
+      sectionKey: key,
+      lectures,
+      count_section: lectures.length,
+    }));
+
+    setSections(sectionsArray);
+  };
 
   return (
     <div className="watch-video overflow-hidden">
@@ -37,12 +66,13 @@ const WatchVideo = () => {
               <IoIosArrowBack className="text-xs" />
               <div className="py-2">Về trang chủ</div>
             </div>
-            <div className="text-3xl py-2">
-              Content Marketing | Digital Marketing
+            <div className="text-3xl py-2 uppercase text-blue-600 font-semibold">
+              {course?.course_title}
             </div>
           </div>
 
           <ContentCourse
+            sections={sections}
             setLink={setLink}
             setTitle={setTitle}
             setOpenDraw={setOpenDraw}
@@ -84,6 +114,8 @@ const WatchVideo = () => {
       </div>
 
       <DrawMobile
+        sections={sections}
+        course={course}
         openDraw={openDraw}
         setOpenDraw={setOpenDraw}
         setLink={setLink}

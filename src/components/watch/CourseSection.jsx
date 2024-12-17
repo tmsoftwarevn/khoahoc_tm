@@ -11,7 +11,7 @@ const CourseSection = ({
   setTitle,
   idx,
 }) => {
-  const { title, items } = sectionDetails;
+  const { sectionKey, lectures } = sectionDetails;
   const [idActive, setActive] = useState("");
 
   const [open, toggleOpen] = useState(false);
@@ -21,13 +21,12 @@ const CourseSection = ({
 
   const handleShowVideo = (e, item) => {
     e.stopPropagation();
-    setLink(item.video_url);
+    setLink(item?.video_url);
     setOpenDraw(false); ///  tắt draw mobile
-    setTitle(item.title);
+    setTitle(item?.l_title);
     console.log("checllll", item);
     setActive(item.id);
   };
-  console.log("idddđ", idActive);
 
   return (
     <Accordion expanded={open} className="w-full rounded-none drop-shadow-none">
@@ -38,13 +37,13 @@ const CourseSection = ({
       >
         <div className="flex justify-between w-full ">
           <div className="">
-            {idx + 1}. {title}
+            {idx + 1}. {sectionKey}
           </div>
         </div>
       </AccordionSummary>
 
       <AccordionDetails className="border-t border-gray-500">
-        {items.map((item, idx) => {
+        {lectures.map((item, idx) => {
           return (
             <div key={idx} className="flex items-center justify-between">
               <div className="flex items-center cursor-pointer py-2">
@@ -53,7 +52,7 @@ const CourseSection = ({
                   onClick={(e) => handleShowVideo(e, item)}
                   className="hover:text-blue-600 duration-100"
                 >
-                  {item.title}
+                  {item.l_title}
                 </span>
               </div>
             </div>

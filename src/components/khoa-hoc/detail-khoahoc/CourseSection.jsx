@@ -6,8 +6,8 @@ import { IoIosPlayCircle } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 
-const CourseSection = ({ sectionDetails , setOpen, idx}) => {
-  const { title, items } = sectionDetails;
+const CourseSection = ({ sectionDetails , setOpen, idx,slug}) => {
+  const { sectionKey, lectures,count_section } = sectionDetails;
   const router  = useRouter();
   const [open, toggleOpen] = useState(false);
   const handleClick = () => {
@@ -22,23 +22,23 @@ const CourseSection = ({ sectionDetails , setOpen, idx}) => {
         onClick={handleClick}
       >
         <div className="flex justify-between w-full ">
-          <div className="">{idx + 1}. {title}</div>
-          <div className="hidden sm:block">2 Bài học</div>
+          <div className="">{idx + 1}. {sectionKey}</div>
+          <div className="hidden sm:block">{count_section} Bài học</div>
         </div>
       </AccordionSummary>
 
       <AccordionDetails className="border-t border-gray-500">
-        {items.map((item, idx) => {
+        {lectures.map((item, idx) => {
           return (
             <div key={idx} className="flex items-center justify-between">
               <div className="flex items-center cursor-pointer py-2">
                 <IoIosPlayCircle className="mr-2 text-blue-600 text-lg" />
-                <span onClick={() => router.push('/watch')} className="hover:text-blue-600 duration-100">
-                  {item.title}
+                <span onClick={() => router.push(`/watch?s=${slug}`)} className="hover:text-blue-600 duration-100">
+                  {item.l_title}
                 </span>
               </div>
 
-              {item.can_be_previewed ? (
+              {/* {item.can_be_previewed ? (
                 <span 
                 onClick={() => setOpen(true)}
                 className="hidden sm:block cursor-pointer text-blue-600">
@@ -46,7 +46,7 @@ const CourseSection = ({ sectionDetails , setOpen, idx}) => {
                 </span>
               ) : (
                 <span></span>
-              )}
+              )} */}
               
             </div>
           );

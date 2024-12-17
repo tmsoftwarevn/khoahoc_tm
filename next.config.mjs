@@ -7,10 +7,7 @@ const nextConfig = {
   env: {
     // change url be  ko có / cuối  
     
-    URL_BACKEND: 'http://localhost:8086',
-
-    //URL_BACKEND: 'https://be.tmbook.vn',
-    API_KEY_EDITOR: 'vsoxs499b7om3973v4xlmijk4ipjy5o2ltgvgcww0wylqfpm'
+    URL_BACKEND: 'https://tmaccademia.tmsoftware.vn',
 
   },
 };

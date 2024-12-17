@@ -4,18 +4,19 @@ import { GoClock } from "react-icons/go";
 import { IoIosPlayCircle } from "react-icons/io";
 import { FaTag } from "react-icons/fa";
 
-const HeaderCourse = () => {
-  const [string, setString] = useState(["khóa học"]);
+const HeaderCourse = (props) => {
+  const {course} = props;
   return (
     <div className="text-white px-5 py-5">
-      {/* <BreadCustom listBread={string} /> */}
-      <h1 className="font-semibold">Chinh Phục Sản Xuất Video Ngắn</h1>
+      
+      <h1 className="font-semibold uppercase">{course?.course_title}</h1>
       <div className="my-3 font-medium text-lg">
-        Giúp bạn biến ý tưởng thành những video ấn tượng để xây dựng thương hiệu
+        {/* Giúp bạn biến ý tưởng thành những video ấn tượng để xây dựng thương hiệu
         cá nhân, bán hàng và bắt kịp xu hướng viral trên mạng xã hội.If you read
         the above list and are feeling a bit confused, don’t worry! As an
         instructor and student on Udemy for almost 4 years, I know what it’s
-        like to be overwhelmed with boring and mundane.
+        like to be overwhelmed with boring and mundane. */}
+        {course?.keywords}
       </div>
 
       {/* <div className="flex items-center gap-5 lg:gap-10">

@@ -332,7 +332,7 @@ const khoa_hoc = {
 const ContentCourse = (props) => {
   const {
     setLink,
-
+    sections,
     setOpenDraw,
     setTitle,
   } = props;
@@ -340,7 +340,7 @@ const ContentCourse = (props) => {
   return (
     <div>
       <List>
-        {khoa_hoc.sections.map((section, idx) => {
+        {sections.map((section, idx) => {
           const sectionComponent = (
             <CourseSection
               idx={idx}

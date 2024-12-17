@@ -1,28 +1,22 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { call_list_blog } from "@/api/CallApi";
 
 const arr = ["1", "2", "2", "3", "4"];
 
 const ListBlog = () => {
   const router = useRouter();
+  const [listBlog, setListBlog] = useState();
 
-  // const fetch_baiviet = async () => {
-  //   let page = params.get("page") ? params.get("page") : 1;
-  //   const res = await fetch(
-  //     `${process.env.URL_BACKEND}/api/v1/listbaiviet-home?page=${page}&limit=${limit}`
-  //   );
-  //   const result = await res.json();
-  //   console.log("ressssssss", result);
+  useEffect(() => {
+    const call_data = async () => {
+      let data = await call_list_blog();
+      setListBlog(data);
+    };
+    call_data();
+  }, []);
 
-  //   if (result && result.data) {
-  //     setList(result.data.list);
-  //     setTotal(result.data.meta.totalPage);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetch_baiviet();
-  // }, [params.get("page")]);
+  console.log('lllll', listBlog);
 
   return (
     <div className="w-full dark:bg-gray-800">

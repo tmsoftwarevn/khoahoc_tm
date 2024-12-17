@@ -31,7 +31,7 @@ export default function MobileDrawer(props) {
   }, []);
 
   const router = useRouter();
-  const { setTitle, openDraw, setOpenDraw, setLink } = props;
+  const { setTitle, openDraw, setOpenDraw, setLink, sections, course } = props;
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -59,19 +59,21 @@ export default function MobileDrawer(props) {
           <IoIosArrowBack className="text-xs" />
           <p className="py-2">Về trang chủ</p>
         </div>
-        <div className="text-3xl">Content Marketing | Digital Marketing</div>
+        <div className="text-3xl text-blue-600 uppercase">{course?.course_title}</div>
       </div>
 
       <ContentCourse
+        course={course}
         setTitle={setTitle}
         setOpenDraw={setOpenDraw}
         setLink={setLink}
+        sections={sections}
       />
     </Box>
   );
   // const useStyles = makeStyles({
   //   drawerPaper: {
-      
+
   //     paddingTop: "65px",
   //   },
   // });

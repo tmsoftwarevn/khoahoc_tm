@@ -25,7 +25,7 @@ const ThanhToan = () => {
             <div class="container mx-auto">
               <div class="flex items-center justify-center">
                 <div class="text-center text-white">
-                  <h1 class="text-3xl lg:text-5xl font-bold">
+                  <h1 class="text-3xl lg:text-5xl font-bold uppercase">
                     {name}
                   </h1>
                 </div>

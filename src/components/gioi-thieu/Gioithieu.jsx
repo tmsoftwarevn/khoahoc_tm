@@ -1,15 +1,27 @@
-import React from "react";
+import { call_about } from "@/api/CallApi";
+import React, { useEffect, useState } from "react";
 
 const AboutUs8 = () => {
+  const [about, setAbout] = useState("");
+
+  useEffect(() => {
+    const call_data = async () => {
+      let data = await call_about();
+      setAbout(data);
+    };
+    call_data();
+
+  }, []);
+  
+  console.log('aaaaa', about);
+
   return (
     <section className="ezy__about8 light py-5 lg:py-14 md:pb-24 ">
       <div className="container px-2">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 lg:col-span-6 mb-6 lg:mb-0">
             <div className="relative">
-              <h1 className="text-2xl md:text-4xl font-bold mb-4">
-                Im Jesica
-              </h1>
+              <h1 className="text-2xl md:text-4xl font-bold mb-4">Im Jesica</h1>
               <p className="opacity-75 mb-2">
                 Completely network collaborative web services via user-centric
                 initiatives. Quickly promote sticky testing procedures before
