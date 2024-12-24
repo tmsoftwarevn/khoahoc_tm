@@ -13,9 +13,9 @@ import CustomVideo from "@/ui/modal video/CustomVideo";
 const Khoahoc = ({ params }) => {
   const [isOpen, setOpen] = useState(false);
   //const customVideoUrl = "https://www.youtube.com/watch?v=Bkzdj924XAg";
-  const customVideoUrl = "https://tmaccademia.tmsoftware.vn/storage/course/2/raw_1729147997_vid-20221129-203222-17291479958096.mp4";
+  const customVideoUrl = "";
   const slug = params.slug;
-
+  const [url, setUrl] = useState('');
   return (
     <div>
      
@@ -23,7 +23,7 @@ const Khoahoc = ({ params }) => {
       <Header />
 
       <div className="container">
-        <DetailKhoahoc slug = {slug} isOpen={isOpen} setOpen={setOpen} />
+        <DetailKhoahoc setUrl={setUrl} slug = {slug} isOpen={isOpen} setOpen={setOpen} />
       </div>
 
       <Footer />
@@ -33,7 +33,7 @@ const Khoahoc = ({ params }) => {
       <CustomVideo
         isOpen={isOpen}
         setOpen={setOpen}
-        customVideoUrl={customVideoUrl}
+        customVideoUrl={`${process.env.URL_BACKEND}/storage/${url}`}
       />
     </div>
   );

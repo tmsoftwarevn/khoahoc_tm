@@ -8,11 +8,11 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import DrawMobile from "./DrawMobile";
 import { useEffect, useState } from "react";
 import { MdCancelPresentation } from "react-icons/md";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 import "./watch.scss";
-import { call_detail_course } from "@/api/CallApi";
+import { call_detail_course, call_detail_video_withId } from "@/api/CallApi";
 
 const WatchVideo = () => {
   const router = useRouter();
@@ -24,10 +24,11 @@ const WatchVideo = () => {
   const [title, setTitle] = useState();
   const searchParams = useSearchParams();
   const slug = searchParams.get("s");
+  const idVideo = searchParams.get("idVideo");
 
-  //console.log('ssssss', slug);
   const [course, setCourse] = useState();
   const [sections, setSections] = useState([]);
+
 
   useEffect(() => {
     const call_data = async () => {
@@ -39,6 +40,22 @@ const WatchVideo = () => {
     };
     call_data();
   }, []);
+
+  // call detail video mỗi lần thay đổi idVideo
+  useEffect(() =>{
+    const call_data = async () => {
+      let data = await call_detail_video_withId(idVideo);
+      if (data) {
+        console.log('linkkkkkkk', data);
+      }
+    };
+    call_data();
+  },[idVideo])
+
+  // check user có quyền truy cập khóa học k
+  useEffect(() =>{
+
+  },[])
 
   // lấy các bài giảng
   const custom_arr_section = (sections) => {

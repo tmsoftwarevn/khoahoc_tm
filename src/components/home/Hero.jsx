@@ -5,6 +5,8 @@ import ToolTipButton from "@/ui/custom/ToolTipButton";
 import ButtonHover from "@/ui/custom/ButtonHover";
 
 import Slider from "react-slick";
+import { call_list_course } from "@/api/CallApi";
+import { useEffect, useState } from "react";
 
 let settings = {
   dots: true,
@@ -21,18 +23,40 @@ let settings = {
 
 const Hero = (props) => {
   const router = useRouter();
-  const { isOpen, setOpen } = props;
+  const { isOpen, setOpen, setUrl } = props;
+  const [listCourse, setListCourse] = useState([]);
 
-  // if arr = 1 thì double
+  // if arr = 1 thì double lỗi slide 1 item
   let arr = [1, 2];
 
+  useEffect(() => {
+    const call_data = async () => {
+      let data = await call_list_course();
+      if (data.length < 2) {
+        const doubledArr = data.concat(data);
+        setListCourse(doubledArr);
+      } else setListCourse(data);
+    };
+    call_data();
+  }, []);
+
+  const handle_show_video = (url) => {
+    setOpen(true);
+    setUrl(url);
+  };
   return (
     <>
       <Slider {...settings}>
-        {arr.map((item, idx) => {
+        {listCourse.map((item, idx) => {
+          //bg-[url('/bg-hero.jpg')]
           return (
             <div key={`ewe${idx}`}>
-              <div className="h-full lg:h-[calc(100vh-107px)] w-full bg-[url('/bg-hero.jpg')] bg-no-repeat bg-cover bg-center pt-16 sm:py-12">
+              <div
+                style={{
+                  backgroundImage: `url(${process.env.URL_BACKEND}/storage/${item?.slide_image})`,
+                }}
+                className="h-full lg:h-[calc(100vh-107px)] w-full  bg-no-repeat bg-cover bg-center pt-16 sm:py-12"
+              >
                 <div className="container">
                   <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-12 gap-8 ">
                     <div className="px-6 sm:text-center lg:col-span-6 lg:flex lg:items-center lg:text-left">
@@ -40,24 +64,26 @@ const Hero = (props) => {
                         <div className="space-y-4">
                           <div className="space-y-2">
                             <span className="rounded-full uppercase bg-pink-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
-                              Early Access
+                              Khóa học
                             </span>
-                            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-                              <span className="sm:text-6xl"></span> Wireless
-                              Bluetooth Earbuds
-                              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
-                                StellarGlo
+                            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-5xl">
+                              {/* <span className="sm:text-6xl"></span> Wireless
+                              Bluetooth Earbuds */}
+                              <span className=" text-transparent uppercase bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
+                                {/* StellarGlo */}
+                                {item?.course_title}
                               </span>
                               <br />
-                              go beyond sound.
+                              {/* go beyond sound. */}
                             </h1>
                           </div>
-                          <p className="text-base text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                            Immerse yourself in superior audio quality with the
-                            StellarGlo Wireless Bluetooth Earbuds. These sleek
-                            and lightweight earbuds deliver crystal-clear sound
-                            and rich bass.
-                          </p>
+
+                          <div
+                            className="text-base text-gray-200 line-clamp-6 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+                            dangerouslySetInnerHTML={{
+                              __html: item?.description,
+                            }}
+                          />
                         </div>
                         <div className="border-t border-gray-700" />
                         <div className="flex space-x-4 items-center text-white">
@@ -70,7 +96,7 @@ const Hero = (props) => {
                                 decoding="async"
                                 className="h-6 w-6 max-w-none rounded-full ring-2 ring-white"
                                 style={{ color: "transparent" }}
-                                src="https://randomuser.me/api/portraits/men/29.jpg"
+                                src="/person-1.jpg"
                               />
                               <img
                                 loading="lazy"
@@ -79,7 +105,7 @@ const Hero = (props) => {
                                 decoding="async"
                                 className="h-6 w-6 max-w-none rounded-full ring-2 ring-white"
                                 style={{ color: "transparent" }}
-                                src="https://randomuser.me/api/portraits/men/90.jpg"
+                                src="/person-2.jpg"
                               />
                               <img
                                 loading="lazy"
@@ -88,7 +114,7 @@ const Hero = (props) => {
                                 decoding="async"
                                 className="h-6 w-6 max-w-none rounded-full ring-2 ring-white"
                                 style={{ color: "transparent" }}
-                                src="https://randomuser.me/api/portraits/men/75.jpg"
+                                src="/person-3.jpg"
                               />
                               <img
                                 loading="lazy"
@@ -97,11 +123,11 @@ const Hero = (props) => {
                                 decoding="async"
                                 className="h-6 w-6 max-w-none rounded-full ring-2 ring-white"
                                 style={{ color: "transparent" }}
-                                src="https://randomuser.me/api/portraits/men/5.jpg"
+                                src="/person-4.jpg"
                               />
                             </div>
                             <span className="flex-shrink-0 text-xs font-medium leading-5">
-                              +15
+                              +10
                             </span>
                           </div>
                           <div className="h-4 border-l border-gray-700" />
@@ -140,8 +166,7 @@ const Hero = (props) => {
                           <div className="h-4 border-l border-gray-700" />
 
                           {/* <ToolTipButton /> */}
-                          <ButtonHover name = "Khám phá" />
-
+                          <ButtonHover slug= {item?.course_slug} name="Khám phá" />
                         </div>
                       </div>
                     </div>
@@ -149,8 +174,7 @@ const Hero = (props) => {
                       <div className="relative">
                         <Image
                           loading="lazy"
-                          //src="/124.jpg"
-                          src={idx %2 === 0 ? "/125.jpg" : "/123.jpg"}
+                          src={`${process.env.URL_BACKEND}/storage/${item?.course_image}`}
                           alt={"ds"}
                           width="0"
                           height="0"
@@ -160,7 +184,7 @@ const Hero = (props) => {
                         />
                         <span
                           className="video-play-button"
-                          onClick={() => setOpen(true)}
+                          onClick={() => handle_show_video(item?.video_path)}
                         >
                           <span></span>
                         </span>
@@ -173,7 +197,6 @@ const Hero = (props) => {
           );
         })}
       </Slider>
-     
     </>
   );
 };

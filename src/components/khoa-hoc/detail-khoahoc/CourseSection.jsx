@@ -4,16 +4,26 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { IoIosPlayCircle } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
-
-const CourseSection = ({ sectionDetails , setOpen, idx,slug}) => {
-  const { sectionKey, lectures,count_section } = sectionDetails;
-  const router  = useRouter();
+const CourseSection = ({ sectionDetails, setOpen, idx, slug }) => {
+  const { sectionKey, lectures, count_section } = sectionDetails;
+  const router = useRouter();
   const [open, toggleOpen] = useState(false);
   const handleClick = () => {
     toggleOpen(!open);
   };
 
+  const check_role = (idx) => {
+    // check token có truy cập được không
+    let token = sessionStorage.getItem("token");
+    if (token) {
+      // xem video
+      router.push(`/watch?s=${slug}&idVideo=${idx}`);
+    } else {
+      Swal.fire("Bạn cần đăng nhập để xem !");
+    }
+  };
   return (
     <Accordion expanded={open} className="w-full rounded-none drop-shadow-none">
       <AccordionSummary
@@ -22,7 +32,9 @@ const CourseSection = ({ sectionDetails , setOpen, idx,slug}) => {
         onClick={handleClick}
       >
         <div className="flex justify-between w-full ">
-          <div className="">{idx + 1}. {sectionKey}</div>
+          <div className="">
+            {idx + 1}. {sectionKey}
+          </div>
           <div className="hidden sm:block">{count_section} Bài học</div>
         </div>
       </AccordionSummary>
@@ -33,7 +45,10 @@ const CourseSection = ({ sectionDetails , setOpen, idx,slug}) => {
             <div key={idx} className="flex items-center justify-between">
               <div className="flex items-center cursor-pointer py-2">
                 <IoIosPlayCircle className="mr-2 text-blue-600 text-lg" />
-                <span onClick={() => router.push(`/watch?s=${slug}`)} className="hover:text-blue-600 duration-100">
+                <span
+                  onClick={() => check_role(item?.lecture_quiz_id)}
+                  className="hover:text-blue-600 duration-100"
+                >
                   {item.l_title}
                 </span>
               </div>
@@ -47,7 +62,6 @@ const CourseSection = ({ sectionDetails , setOpen, idx,slug}) => {
               ) : (
                 <span></span>
               )} */}
-              
             </div>
           );
         })}

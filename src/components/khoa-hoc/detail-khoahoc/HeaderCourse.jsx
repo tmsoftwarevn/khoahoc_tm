@@ -5,20 +5,16 @@ import { IoIosPlayCircle } from "react-icons/io";
 import { FaTag } from "react-icons/fa";
 
 const HeaderCourse = (props) => {
-  const {course} = props;
+  const { course } = props;
   return (
     <div className="text-white px-5 py-5">
-      
       <h1 className="font-semibold uppercase">{course?.course_title}</h1>
-      <div className="my-3 font-medium text-lg">
-        {/* Giúp bạn biến ý tưởng thành những video ấn tượng để xây dựng thương hiệu
-        cá nhân, bán hàng và bắt kịp xu hướng viral trên mạng xã hội.If you read
-        the above list and are feeling a bit confused, don’t worry! As an
-        instructor and student on Udemy for almost 4 years, I know what it’s
-        like to be overwhelmed with boring and mundane. */}
-        {course?.keywords}
-      </div>
-
+      <div
+        className="my-3 font-medium text-lg"
+        dangerouslySetInnerHTML={{
+          __html: course?.description,
+        }}
+      />
       {/* <div className="flex items-center gap-5 lg:gap-10">
         <div className="flex items-center ">
           <GoClock className="mr-1 font-bold" />
@@ -33,7 +29,6 @@ const HeaderCourse = (props) => {
           <span>Mọi trình độ</span>
         </div>
       </div> */}
-
     </div>
   );
 };

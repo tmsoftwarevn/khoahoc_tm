@@ -20,8 +20,7 @@ export default function Home() {
   // const customVideoUrl =
   //   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
-  const customVideoUrl =
-  "https://www.youtube.com/watch?v=3emW1uOn5a4";
+  const [url, setUrl] = useState('');
 
   return (
     <>
@@ -30,7 +29,7 @@ export default function Home() {
       <ScrollGlobal>
         <Header />
 
-        <Hero isOpen={isOpen} setOpen={setOpen} />
+        <Hero isOpen={isOpen} setOpen={setOpen} setUrl={setUrl} />
 
         <Feature />
 
@@ -51,7 +50,7 @@ export default function Home() {
       <CustomVideo
         isOpen={isOpen}
         setOpen={setOpen}
-        customVideoUrl={customVideoUrl}
+        customVideoUrl={`${process.env.URL_BACKEND}/storage/${url}`}
       />
     </>
   );

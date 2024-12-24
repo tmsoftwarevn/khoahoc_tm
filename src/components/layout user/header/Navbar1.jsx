@@ -5,16 +5,28 @@ import { IoIosLogIn, IoMdMail } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import Text from "@/ui/test/Test";
+import Swal from "sweetalert2";
+
 
 const Navbar1 = () => {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
+  const [email, setEmail] = useState("");
 
-  const isAuthenticated = false;
-  const username = "user name";
-  const userEmail = "email";
-  const role = "admin";
+  useEffect(() => {
+    const check = window.sessionStorage.getItem("email");
+    if (check) {
+      setEmail(window.sessionStorage.getItem("email"));
+    }
+  }, []);
+
+  const handleLogout = () =>{
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('email');
+    Swal.fire("Đăng xuất thành công !");
+    router.push('/login')
+  }
+  console.log("emailll", email);
 
   const handleSearch = () => {
     console.log("vvvvv", searchValue);
@@ -41,9 +53,8 @@ const Navbar1 = () => {
         </div>
       </div> */}
 
-     
       <div className="flex justify-end py-2 pr-2 items-center gap-5 w-full">
-        {isAuthenticated ? (
+        {email ? (
           <>
             <div class="dropdown relative inline-flex group">
               <button
@@ -73,8 +84,8 @@ const Navbar1 = () => {
                 class="dropdown-menu rounded-xl shadow-lg bg-white absolute top-full w-72 divide-y divide-gray-200 hidden group-hover:block z-50"
                 aria-labelledby="dropdown-with-header"
               >
-                <div class="px-4 py-3 flex gap-3 ">
-                  <div class="block mt-1">
+                <div class="px-4 py-3 flex gap-3 items-center">
+                  <div class="block ">
                     <svg
                       width="20"
                       height="20"
@@ -94,24 +105,13 @@ const Navbar1 = () => {
                       />
                     </svg>
                   </div>
-                  <div class="block">
-                    <div class="text-blue-600 font-normal mb-1">{username}</div>
-                    <div class="text-sm text-gray-500 font-medium truncate">
-                      {userEmail}
-                    </div>
+                  <div class="block overflow-hidden">
+                    <div class="text-blue-600 font-normal">{email}</div>
+                    
                   </div>
                 </div>
-                <ul class="">
-                  {isAuthenticated && role === "ADMIN" && (
-                    <li>
-                      <span
-                        class="block px-6 py-2 hover:text-blue-600 cursor-pointer text-gray-900 font-medium"
-                        onClick={() => router.push("/admin")}
-                      >
-                        Trang quản trị
-                      </span>
-                    </li>
-                  )}
+                {/* <ul class="list-none">
+                  
                   <li>
                     <span
                       onClick={() => router.push("/account/tai-khoan")}
@@ -128,7 +128,7 @@ const Navbar1 = () => {
                       Lịch sử mua hàng
                     </span>
                   </li>
-                </ul>
+                </ul> */}
                 <div class="cursor-pointer">
                   <div
                     onClick={() => handleLogout()}
@@ -142,13 +142,6 @@ const Navbar1 = () => {
           </>
         ) : (
           <>
-            {/* <div
-              className="flex items-center  hover:text-blue-500 duration-150 gap-1 cursor-pointer hover:underline "
-              onClick={() => router.push("/login")}
-            >
-              <IoIosLogIn />
-              Đăng nhập
-            </div> */}
             <div
               className="flex items-center px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-600 rounded-md shadow-md gap-2 cursor-pointer hover:from-purple-500 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300"
               onClick={() => router.push("/login")}
@@ -156,16 +149,6 @@ const Navbar1 = () => {
               <IoIosLogIn className="text-xl" />
               <span className="font-medium">Đăng nhập</span>
             </div>
-
-            {/* <div
-              className="flex items-center px-4 py-2 text-white bg-gradient-to-r from-blue-400 to-purple-600 rounded-md shadow-md gap-2 cursor-pointer hover:from-purple-500 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-400/50 transition-all duration-300"
-              onClick={() => router.push("/login")}
-            >
-              <MdKey className="text-xl" />
-              <span className="font-medium">Đăng ký</span>
-            </div> */}
-
-           
           </>
         )}
       </div>

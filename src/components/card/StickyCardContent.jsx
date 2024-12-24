@@ -8,23 +8,25 @@ import { useRouter } from "next/navigation";
 import { convertSlug } from "../../util/convertSlug";
 
 const StickyCardContent = (props) => {
-  const { setOpen,course,listVideo } = props;
+  const { setOpen, course, listVideo, setUrl } = props;
   const route = useRouter();
 
   const handleBuy = (name) => {
-    
     localStorage.setItem("course", name);
 
     route.push(`/thanh-toan?s=${course?.course_slug}`);
   };
-
+  const handle_show_video = () => {
+    setOpen(true);
+  
+  };
   return (
     <div className="shadow-sm shadow-gray-400 sticky-card">
       <div className="relative">
         <Image
           loading="lazy"
           //src="/123.jpg"
-          src={`${process.env.URL_BACKEND}/storage/${course?.thumb_image}`}
+          src={`${process.env.URL_BACKEND}/storage/${course?.course_image}`}
           alt={"ds"}
           width="0"
           height="0"
@@ -32,7 +34,7 @@ const StickyCardContent = (props) => {
           style={{ objectFit: "cover" }}
           className="w-full h-auto "
         />
-        <span className="video-play-button" onClick={() => setOpen(true)}>
+        <span className="video-play-button" onClick={() => handle_show_video()}>
           <span></span>
         </span>
       </div>
@@ -52,7 +54,6 @@ const StickyCardContent = (props) => {
             }).format(course?.price)}
           </div>
         </div>
-
 
         <button
           onClick={() => handleBuy(course.course_title)}
@@ -76,8 +77,7 @@ const StickyCardContent = (props) => {
           </div>
         </button>
 
-        <CourseInclude course = {course} listVideo = {listVideo} />
-
+        <CourseInclude course={course} listVideo={listVideo} />
       </div>
     </div>
   );
